@@ -1,0 +1,7 @@
+---
+- name: apply humans
+  hosts: flyingeagle
+
+  roles:
+        - common
+        - human
