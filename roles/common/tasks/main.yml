@@ -11,3 +11,4 @@
   pkgng:
     name:
       - python3
+    autoremove: yes
