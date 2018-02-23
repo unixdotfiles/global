@@ -1,3 +1,4 @@
+---
 - zfs:
     name: zroot/code/obj
     state: present
@@ -11,3 +12,18 @@
     redundant_metadata: most
     logbias: throughput
     sync: disabled
+
+- zfs:
+    name: zroot/code/src
+    state: present
+    atime: off
+    canmount: on
+    checksum: on
+    compress: on
+    exec: on
+    mountpoint: /srv/src
+    readonly: off
+    redundant_metadata: all
+    logbias: latency
+    sync: disabled
+    utf8only: on
