@@ -1,0 +1,4 @@
+- name: Install basic packages
+  pkgng:
+    name:
+      - python3

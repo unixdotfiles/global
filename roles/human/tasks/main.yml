@@ -1,0 +1,20 @@
+- block:
+  - group:
+      name: eax
+      gid: 1001
+
+  - user:
+      name: eax
+      uid: 1001
+      groups: eax,wheel
+
+  - group:
+      name: stupid
+      state: absent
+
+  - user:
+      name: stupid
+      state: absent
+
+  become: yes
+  become_user: root
