@@ -1,0 +1,13 @@
+- zfs:
+    name: zroot/code/obj
+    state: present
+    atime: off
+    canmount: on
+    checksum: on
+    compress: on
+    exec: on
+    mountpoint: /srv/obj
+    readonly: off
+    redundant_metadata: most
+    logbias: throughput
+    sync: disabled
