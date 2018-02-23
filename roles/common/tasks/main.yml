@@ -10,5 +10,7 @@
 - name: Install basic packages
   pkgng:
     name:
+      - bash
       - python3
+      - zsh
     autoremove: yes

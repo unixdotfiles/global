@@ -2,19 +2,16 @@
   - group:
       name: eax
       gid: 1001
+      state: present
 
   - user:
       name: eax
       uid: 1001
+      group: eax
       groups: eax,wheel
-
-  - group:
-      name: stupid
-      state: absent
-
-  - user:
-      name: stupid
-      state: absent
+      home: /home/eax
+      shell: /usr/local/bin/zsh
+      state: present
 
   become: yes
   become_user: root
