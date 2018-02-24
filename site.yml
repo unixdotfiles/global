@@ -8,6 +8,7 @@
     - common
     - human
     - eaxhome
+    - develop
     - willshersystems.sshd
 
 - name: apply to everything

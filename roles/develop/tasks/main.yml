@@ -1,0 +1,6 @@
+- name: Install development packages
+  pkgng:
+    name:
+      - ripgrep
+      - the_silver_searcher
+    autoremove: yes
