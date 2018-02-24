@@ -46,3 +46,18 @@
     src: "null"
     opts: rw
     state: mounted
+
+- kld:
+    name: amdtemp
+    load: true
+    boot: true
+
+- sysrc:
+    name: syslogd_flags
+    state: present
+    value: -ss
+
+- sysrc:
+    name: hostname
+    state: present
+    value: "{{ inventory_hostname }}"
