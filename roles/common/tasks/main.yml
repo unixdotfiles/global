@@ -8,13 +8,19 @@
     dest: /usr/local/etc/pkg/repos/FreeBSD.conf
     owner: root
     group: wheel
-    mode: 644
+    mode: '0644'
     backup: yes
 
 - name: Install basic packages
   pkgng:
     name:
+      - ansible
       - bash
+      - git
+      - jq
+      - tmux
+      - vim
+      - sudo
       - python3
       - zsh
     autoremove: yes
