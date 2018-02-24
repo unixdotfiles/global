@@ -17,6 +17,7 @@
       - ansible
       - bash
       - git
+      - rubygem-ohai
       - jq
       - tmux
       - vim
