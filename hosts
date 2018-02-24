@@ -2,7 +2,7 @@ all:
   children:
     base:
       hosts:
-        flyingeagle:
+        fasteagle:
           ansible_host: localhost
       vars:
         ansible_user: eax
