@@ -1,3 +1,7 @@
+- debug:
+    var: vars
+    verbosity: 3
+
 - name: Set up repository path
   template:
     src: FreeBSD.conf

@@ -1,6 +1,6 @@
 ---
 - name: apply to host system
-  hosts: flyingeagle
+  hosts: fasteagle
 
   roles:
     - base
@@ -8,6 +8,7 @@
     - common
     - human
     - eaxhome
+    - willshersystems.sshd
 
 - name: apply to everything
   hosts: all

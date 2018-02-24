@@ -1,5 +1,10 @@
 - block:
   - group:
+      name: ssh_allowed
+      gid: 2001
+      state: present
+
+  - group:
       name: eax
       gid: 1001
       state: present
@@ -8,7 +13,7 @@
       name: eax
       uid: 1001
       group: eax
-      groups: eax,wheel
+      groups: eax,wheel,ssh_allowed
       home: /home/eax
       shell: /usr/local/bin/zsh
       state: present

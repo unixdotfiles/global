@@ -1,0 +1,11 @@
+sshd:
+  Compression: delayed
+  ListenAddress:
+    - "0.0.0.0"
+    - "::"
+  AllowAgentForwarding: yes
+  AllowGroups: ssh_allowed
+  AuthenticationMethods: publickey
+  PermitRootLogin: no
+  Port: 22
+  UseDNS: no
