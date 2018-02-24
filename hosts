@@ -1,8 +1,15 @@
 all:
-  hosts:
-    flyingeagle:
-      ansible_host: localhost
-  vars:
-    ansible_user: eax
-    ansible_python_interpreter: /usr/local/bin/python2.7
-    ansible_connection: local
+  children:
+    base:
+      hosts:
+        flyingeagle:
+          ansible_host: localhost
+      vars:
+        ansible_user: eax
+        ansible_python_interpreter: /usr/local/bin/python2.7
+        ansible_connection: local
+    jails:
+      hosts:
+        bastion:
+      vars:
+        ansible_connection=jail

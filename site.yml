@@ -1,9 +1,15 @@
 ---
-- name: apply humans
+- name: apply to host system
   hosts: flyingeagle
 
   roles:
-        - base
-        - storage
-        - common
-        - human
+    - base
+    - storage
+    - common
+    - human
+
+- name: apply to everything
+  hosts: all
+
+  roles:
+    - common
