@@ -4,3 +4,23 @@
       - ripgrep
       - the_silver_searcher
     autoremove: yes
+
+- name: create main mountpoints for source code
+  file:
+    path: "{{ item }}"
+    owner: eax
+    group: eax
+    mode: "0755"
+    state: directory
+  with_items:
+    - /srv/src
+    - /srv/rosrc
+    - /srv/obj
+
+- name: mount read-only copy of source
+  mount:
+    path: /srv/rosrc
+    src: /srv/src
+    fstype: nullfs
+    opts: ro,late
+    state: mounted

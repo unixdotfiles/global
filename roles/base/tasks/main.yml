@@ -17,7 +17,6 @@
     opts: rw
     state: mounted
 
-
 # --- Required for vinet + jails ---
 
 - sysctl:
