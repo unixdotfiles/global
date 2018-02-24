@@ -5,7 +5,6 @@
   roles:
     - base
     - storage
-    - common
     - human
     - eaxhome
     - develop
