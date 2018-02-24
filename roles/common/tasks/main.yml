@@ -25,6 +25,7 @@
       - python3
       - pam_google_authenticator
       - zsh
+      - vuxml
     autoremove: yes
 
 - name: Setup production malloc

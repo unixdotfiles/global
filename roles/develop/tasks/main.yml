@@ -3,6 +3,12 @@
     name:
       - ripgrep
       - the_silver_searcher
+      - ghc
+      - docproj
+      - ninja
+      - cpuid
+      - distilator
+      - portlint
     autoremove: yes
 
 - name: create main mountpoints for source code
