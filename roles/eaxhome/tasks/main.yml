@@ -1,0 +1,28 @@
+---
+- git:
+    repo: 'https://github.com/unixdotfiles/dotfiles'
+    dest: /home/eax/.conf
+    version: master
+    accept_hostkey: yes
+    clone: yes
+    force: no
+    update: no
+
+- git:
+    repo: 'https://github.com/unixdotfiles/misc-scripts'
+    dest: /home/eax/misc-scripts
+    version: master
+    accept_hostkey: yes
+    clone: yes
+    force: no
+    update: no
+
+- git:
+    repo: 'https://github.com/unixdotfiles/bin'
+    dest: /home/eax/bin
+    version: master
+    accept_hostkey: yes
+    clone: yes
+    force: no
+    update: no
+

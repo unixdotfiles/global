@@ -10,6 +10,6 @@ all:
         ansible_connection: local
     jails:
       hosts:
-        bastion:
+        bastion.fasteagle.local:
       vars:
         ansible_connection=jail

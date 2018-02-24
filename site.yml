@@ -7,6 +7,7 @@
     - storage
     - common
     - human
+    - eaxhome
 
 - name: apply to everything
   hosts: all
