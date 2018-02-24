@@ -8,3 +8,42 @@
     name: security.bsd.stack_guard_page
     value: 1
     state: present
+
+- name: ensure proc is mounted
+  mount:
+    path: /proc
+    fstype: procfs
+    src: proc
+    opts: rw
+    state: mounted
+
+
+# --- Required for vinet + jails ---
+
+- sysctl:
+    name: net.inet.ip.forwarding
+    value: 1
+    state: present
+
+- sysctl:
+    name: net.link.bridge.pfil_onlyip
+    value: 0
+    state: present
+
+- sysctl:
+    name: net.link.bridge.pfil_bridge
+    value: 0
+    state: present
+
+- sysctl:
+    name: net.link.bridge.pfil_member
+    value: 0
+    state: present
+
+- name: ensure fdesc is mounted
+  mount:
+    path: /dev/fd
+    fstype: fdescfs
+    src: fdesc
+    opts: rw
+    state: mounted
