@@ -26,3 +26,13 @@
       - pam_google_authenticator
       - zsh
     autoremove: yes
+
+- name: Setup production malloc
+  file:
+    dest: /etc/malloc.conf
+    src: 'abort:false,junk:false'
+    force: yes
+    state: link
+    owner: root
+    group: wheel
+    mode: 644
