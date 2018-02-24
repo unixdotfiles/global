@@ -24,3 +24,22 @@
     fstype: nullfs
     opts: ro,late
     state: mounted
+
+- name: Build FreeBSD with special options
+  template:
+    src: src.conf
+    dest: /etc/src.conf
+    owner: root
+    group: wheel
+    mode: '0644'
+    backup: yes
+
+- name: set up /etc/make.conf
+  template:
+    src: make.conf
+    dest: /etc/make.conf
+    owner: root
+    group: wheel
+    mode: '0644'
+    backup: yes
+
