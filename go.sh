@@ -1,2 +1,2 @@
 #!/bin/sh
-sudo ansible-playbook site.yml
+sudo ansible-playbook --diff site.yml "$@"
