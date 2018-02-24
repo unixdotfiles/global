@@ -3,6 +3,7 @@
   hosts: flyingeagle
 
   roles:
+        - base
+        - storage
         - common
         - human
-        - storage

@@ -1,0 +1,10 @@
+---
+- sysctl:
+    name: kern.randompid
+    value: 1
+    state: present
+
+- sysctl:
+    name: security.bsd.stack_guard_page
+    value: 1
+    state: present
