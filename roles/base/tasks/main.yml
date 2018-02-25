@@ -59,5 +59,10 @@
 
 - sysrc:
     name: hostname
-    state: present
     value: "{{ inventory_hostname }}"
+    state: present
+
+- sysrc:
+    name: ifconfig_bridge0
+    value: "addm bge0 up"
+    state: present
