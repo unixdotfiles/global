@@ -10,21 +10,26 @@
 
 - name: apply to host system
   hosts: fasteagle
-
   roles:
     - base
     - storage
     - human
     - eaxhome
-    - develop
     - willshersystems.sshd
 
 - name: create ssh bastion
   hosts: bastion
-
   roles:
     - sshd
     - bastion
+    - willshersystems.sshd
+
+- name: create development machine
+  hosts: develop
+  roles:
+    - human
+    - eaxhome
+    - develop
     - willshersystems.sshd
 
 - name: apply to everything
