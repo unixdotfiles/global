@@ -1,0 +1,7 @@
+- stat:
+    path: /etc/ssh/ssh_host_ecdsa_key
+  register: ssh_host_ecdsa_key
+
+- name: create ssh_host_ecdsa_key
+  command: /usr/bin/ssh-keygen -A
+  when: ssh_host_ecdsa_key.stat.exists is defined and not ssh_host_ecdsa_key.stat.exists

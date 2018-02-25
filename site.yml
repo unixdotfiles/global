@@ -19,6 +19,13 @@
     - develop
     - willshersystems.sshd
 
+- name: create ssh bastion
+  hosts: bastion
+
+  roles:
+    - sshd
+    - willshersystems.sshd
+
 - name: apply to everything
   hosts: all
 
