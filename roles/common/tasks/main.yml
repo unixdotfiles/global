@@ -23,5 +23,6 @@
       - vim
       - sudo
       - python3
+      - pam_google_authenticator
       - zsh
     autoremove: yes
