@@ -43,6 +43,6 @@
   mount:
     path: /dev/fd
     fstype: fdescfs
-    src: fdesc
+    src: "null"
     opts: rw
     state: mounted
