@@ -9,6 +9,8 @@
       - cpuid
       - distilator
       - portlint
+      - ruby25
+      - valgrind
     autoremove: yes
 
 - name: create main mountpoints for source code

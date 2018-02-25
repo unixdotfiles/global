@@ -16,6 +16,7 @@
     name:
       - ansible
       - bash
+      - cowsay
       - git
       - rubygem-ohai
       - jq
@@ -27,6 +28,7 @@
       - zsh
       - vuxml
     autoremove: yes
+    state: present
 
 - name: Setup production malloc
   file:
@@ -37,3 +39,10 @@
     owner: root
     group: wheel
     mode: 644
+
+- name: Ensure some packages are not installed
+  pkgng:
+    name:
+      - sl
+    autoremove: yes
+    state: absent
