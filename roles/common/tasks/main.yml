@@ -2,6 +2,12 @@
     var: vars
     verbosity: 3
 
+- name: Ensure respository directory exists
+  file:
+    path: /usr/local/etc/pkg/repos
+    recurse: yes
+    state: directory
+
 - name: Set up repository path
   template:
     src: FreeBSD.conf

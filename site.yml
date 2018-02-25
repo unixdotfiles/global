@@ -1,4 +1,12 @@
 ---
+- name: add python if not installed
+  hosts: all
+  gather_facts: False
+
+  tasks:
+    - name: install python
+      raw: test -e /usr/local/bin/python || env ASSUME_ALWAYS_YES=yes pkg install python27
+
 - name: apply to host system
   hosts: fasteagle
 
