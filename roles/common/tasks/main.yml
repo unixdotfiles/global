@@ -52,3 +52,18 @@
       - sl
     autoremove: yes
     state: absent
+
+- sysrc:
+    name: syslogd_flags
+    state: present
+    value: -ss
+
+- sysrc:
+    name: hostname
+    value: "{{ inventory_hostname }}"
+    state: present
+
+- service:
+    name: syslogd
+    state: started
+

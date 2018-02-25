@@ -24,6 +24,7 @@
 
   roles:
     - sshd
+    - bastion
     - willshersystems.sshd
 
 - name: apply to everything

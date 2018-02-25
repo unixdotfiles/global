@@ -53,16 +53,6 @@
     boot: true
 
 - sysrc:
-    name: syslogd_flags
-    state: present
-    value: -ss
-
-- sysrc:
-    name: hostname
-    value: "{{ inventory_hostname }}"
-    state: present
-
-- sysrc:
     name: ifconfig_bridge0
     value: "addm bge0 up"
     state: present

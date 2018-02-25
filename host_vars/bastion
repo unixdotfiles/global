@@ -1,11 +1,26 @@
+sshd_manage_service: True
 sshd:
   Compression: delayed
   ListenAddress:
     - "0.0.0.0"
     - "::"
-  AllowAgentForwarding: yes
-  AllowGroups: ssh_allowed
-  AuthenticationMethods: publickey
+  AuthenticationMethods: publickey,keyboard-interactive
   PermitRootLogin: no
   Port: 2222
   UseDNS: no
+  AllowUsers: bastion
+  ForceCommand: echo 'This account can only used to forward'
+  AllowTcpForwarding: remote
+  AllowAgentForwarding: yes
+  X11Forwarding: no
+  PermitTunnel: yes
+  AllowStreamLocalForwarding: no
+  AuthorizedKeysFile: /opt/bastion/authorized_keys/%u
+  ChrootDirectory: /opt/bastion/ssh_chroot
+  IgnoreUserKnownHosts: yes
+  LogLevel: VERBOSE
+  PermitTTY: no
+  PermitUserRC: no
+  UsePAM: yes
+  ChallengeResponseAuthentication: yes
+  PasswordAuthentication: no
