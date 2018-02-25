@@ -3,9 +3,10 @@
   hosts: all
   gather_facts: False
 
-  tasks:
+  pre_tasks:
     - name: install python
       raw: test -e /usr/local/bin/python || env ASSUME_ALWAYS_YES=yes pkg install python27
+      changed_when: False
 
 - name: apply to host system
   hosts: fasteagle
