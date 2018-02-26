@@ -10,10 +10,11 @@ sshd:
   UseDNS: no
   AllowUsers: bastion
   ForceCommand: echo 'This account can only used to forward'
-  AllowTcpForwarding: remote
+  AllowTcpForwarding: local
   AllowAgentForwarding: yes
   X11Forwarding: no
   PermitTunnel: yes
+  PermitOpen: any
   AllowStreamLocalForwarding: no
   AuthorizedKeysFile: /opt/bastion/authorized_keys/%u
   ChrootDirectory: /opt/bastion/ssh_chroot
