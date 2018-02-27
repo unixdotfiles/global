@@ -59,6 +59,11 @@
     value: -ss
 
 - sysrc:
+    name: zfs_enable
+    state: present
+    value: yes
+
+- sysrc:
     name: hostname
     value: "{{ inventory_hostname }}"
     state: present
@@ -66,4 +71,3 @@
 - service:
     name: syslogd
     state: started
-

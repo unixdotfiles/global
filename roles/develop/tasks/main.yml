@@ -11,6 +11,8 @@
       - portlint
       - ruby25
       - valgrind
+      - subversion
+      - ccache
     autoremove: yes
 
 - name: create main mountpoints for source code
@@ -30,7 +32,7 @@
     path: /srv/rosrc
     src: /srv/src
     fstype: nullfs
-    opts: ro,late
+    opts: ro,late,noauto
     state: mounted
 
 - name: Build FreeBSD with special options
