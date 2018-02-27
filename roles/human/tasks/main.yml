@@ -16,3 +16,11 @@
     home: /home/eax
     shell: /usr/local/bin/zsh
     state: present
+
+- name: Allow wheel users to sudo
+  lineinfile:
+    dest: /usr/local/etc/sudoers
+    state: present
+    regexp: '^%wheel'
+    line: '%wheel ALL=(ALL) ALL'
+    validate: 'visudo -cf %s'

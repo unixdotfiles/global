@@ -27,6 +27,7 @@
 - name: create development machine
   hosts: develop
   roles:
+    - sshd
     - human
     - eaxhome
     - develop
