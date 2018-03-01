@@ -53,3 +53,11 @@
     mode: '0644'
     backup: yes
 
+- name: set up /usr/local/etc/ccache.conf
+  template:
+    src: ccache.conf
+    dest: /usr/local/etc/ccache.conf
+    owner: root
+    group: wheel
+    mode: '0644'
+    backup: yes
