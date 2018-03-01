@@ -53,6 +53,15 @@
     mode: '0644'
     backup: yes
 
+- name: set up /etc/src-env.conf
+  template:
+    src: src-env.conf
+    dest: /etc/src-env.conf
+    owner: root
+    group: wheel
+    mode: '0644'
+    backup: yes
+
 - name: set up /usr/local/etc/ccache.conf
   template:
     src: ccache.conf
