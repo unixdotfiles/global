@@ -12,8 +12,15 @@
       - ruby25
       - valgrind
       - subversion
+    autoremove: yes
+    state: present
+
+- name: Remove packages I don't want
+  pkgng:
+    name:
       - ccache
     autoremove: yes
+    state: absent
 
 - name: create main mountpoints for source code
   file:
