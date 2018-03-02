@@ -56,3 +56,12 @@
     name: ifconfig_bridge0
     value: "addm bge0 up"
     state: present
+
+- name: Base host configuration options
+  template:
+    src: src.conf
+    dest: /etc/src.conf
+    owner: root
+    group: wheel
+    mode: '0644'
+    backup: yes
