@@ -1,0 +1,6 @@
+- name: Install VPN packages
+  pkgng:
+    name:
+      - openvpn
+    autoremove: yes
+    state: present

@@ -33,6 +33,11 @@
     - develop
     - willshersystems.sshd
 
+- name:
+  hosts: vpn
+  roles:
+    - vpn
+
 - name: apply to everything
   hosts: all
 
