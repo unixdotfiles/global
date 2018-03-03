@@ -4,3 +4,15 @@
       - openvpn
     autoremove: yes
     state: present
+
+- group:
+    name: vpn
+    gid: 2004
+    state: present
+
+- user:
+    name: vpn
+    uid: 2004
+    group: vpn
+    shell: /usr/sbin/nologin
+    state: present
