@@ -13,8 +13,8 @@
 
 - name: Permit 'zapping' X
   template:
-    src: src-env.conf
-    dest: /etc/src-env.conf
+    src: xorg.conf.d/zap.conf
+    dest: /usr/local/etc/X11/xorg.conf.d/zap.conf
     owner: root
     group: wheel
     mode: '0644'
