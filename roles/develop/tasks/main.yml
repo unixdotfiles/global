@@ -12,6 +12,7 @@
       - ruby25
       - valgrind
       - subversion
+      - hs-ShellCheck
     autoremove: yes
     state: present
 
