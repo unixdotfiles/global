@@ -17,6 +17,13 @@
     opts: rw
     state: mounted
 
+- name: Install packages useful for base
+  pkgng:
+    name:
+      - zfs-stats
+    autoremove: yes
+    state: present
+
 # --- Required for vinet + jails ---
 
 - sysctl:
