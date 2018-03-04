@@ -33,6 +33,13 @@
     - develop
     - willshersystems.sshd
 
+- name: create laptop
+  hosts: freeingeagle
+  roles:
+    - human
+    - eaxhome
+    - develop
+
 - name:
   hosts: vpn
   roles:
