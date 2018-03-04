@@ -19,3 +19,36 @@
     group: wheel
     mode: '0644'
     backup: yes
+
+- name: add basic rc.conf values
+  blockinfile:
+    path: /etc/rc.conf
+    backup: yes
+    block: |
+      ifconfig_re0="SYNCDHCP inet6 accept_rtadv"
+      syslogd_flags="-ss"
+      local_unbound_enable="YES"
+      moused_enable="YES"
+      ntpd_enable="YES"
+      dumpdev="AUTO"
+      zfs_enable="YES"
+    create: yes
+    owner: root
+    group: wheel
+    marker: "# {mark} ANSIBLE MANAGED BLOCK :: basic"
+    state: present
+
+- name: add interactive rc.conf values but permit customization
+  blockinfile:
+    path: /etc/rc.conf
+    backup: yes
+    block: |
+      kld_list="/boot/modules/i915kms filemon cpuctl coretemp acpi_video if_iwm"
+      linux_enable="YES"
+      dbus_enable="YES"
+      hald_enable="YES"
+    create: yes
+    owner: root
+    group: wheel
+    marker: "# {mark} ANSIBLE MANAGED BLOCK :: interactive"
+    state: present
