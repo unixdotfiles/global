@@ -1,0 +1,21 @@
+- name: Install interactive packages
+  pkgng:
+    name:
+      - xorg-minimal
+      - i3
+      - i3status
+      - xscreensaver
+      - rxvt-unicode
+      - xbindkeys
+      - xclip
+    autoremove: yes
+    state: present
+
+- name: Permit 'zapping' X
+  template:
+    src: src-env.conf
+    dest: /etc/src-env.conf
+    owner: root
+    group: wheel
+    mode: '0644'
+    backup: yes

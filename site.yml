@@ -39,6 +39,7 @@
     - human
     - eaxhome
     - develop
+    - interactive
 
 - name:
   hosts: vpn
