@@ -1,0 +1,6 @@
+---
+- sysctl:
+    name: hw.pci.do_power_nodriver
+    value: 3
+    sysctl_set: yes
+    state: present

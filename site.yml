@@ -16,6 +16,7 @@
     - human
     - eaxhome
     - willshersystems.sshd
+    - power 
 
 - name: create ssh bastion
   hosts: bastion
@@ -40,6 +41,7 @@
     - eaxhome
     - develop
     - interactive
+    - power 
 
 - name:
   hosts: vpn
