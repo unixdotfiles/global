@@ -16,6 +16,8 @@
       - hs-ShellCheck
     autoremove: yes
     state: present
+  tags:
+    - packages
 
 - name: Remove packages I don't want
   pkgng:
@@ -23,6 +25,9 @@
       - ccache
     autoremove: yes
     state: absent
+  tags:
+    - packages
+    - cleanup
 
 - name: create main mountpoints for source code
   file:

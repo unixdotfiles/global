@@ -23,6 +23,8 @@
       - zfs-stats
     autoremove: yes
     state: present
+  tags:
+    - packages
 
 # --- Required for vinet + jails ---
 
@@ -30,21 +32,33 @@
     name: net.inet.ip.forwarding
     value: 1
     state: present
+  tags:
+    - configuration
+    - networking
 
 - sysctl:
     name: net.link.bridge.pfil_onlyip
     value: 0
     state: present
+  tags:
+    - configuration
+    - networking
 
 - sysctl:
     name: net.link.bridge.pfil_bridge
     value: 0
     state: present
+  tags:
+    - configuration
+    - networking
 
 - sysctl:
     name: net.link.bridge.pfil_member
     value: 0
     state: present
+  tags:
+    - configuration
+    - networking
 
 - name: ensure fdesc is mounted
   mount:
@@ -58,11 +72,17 @@
     name: amdtemp
     load: true
     boot: true
+  tags:
+    - configuration
+    - hardware
 
 - sysrc:
     name: ifconfig_bridge0
     value: "addm bge0 up"
     state: present
+  tags:
+    - configuration
+    - networking
 
 - name: Base host configuration options
   template:
@@ -72,6 +92,8 @@
     group: wheel
     mode: '0644'
     backup: yes
+  tags:
+    - configuration
 
 - name: add basic rc.conf values
   blockinfile:
@@ -96,3 +118,5 @@
     group: wheel
     marker: "# {mark} ANSIBLE MANAGED BLOCK :: basic"
     state: present
+  tags:
+    - configuration

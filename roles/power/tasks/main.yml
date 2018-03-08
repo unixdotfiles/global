@@ -4,3 +4,6 @@
     value: 3
     sysctl_set: yes
     state: present
+  tags:
+    - configuration
+    - hardware

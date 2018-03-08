@@ -3,4 +3,6 @@
     name:
       - poudriere
     state: present
+  tags:
+    - packages
 

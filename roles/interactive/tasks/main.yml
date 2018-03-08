@@ -10,6 +10,8 @@
       - xclip
     autoremove: yes
     state: present
+  tags:
+    - packages
 
 - name: Permit 'zapping' X
   template:

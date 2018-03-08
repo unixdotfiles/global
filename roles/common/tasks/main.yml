@@ -7,6 +7,8 @@
     path: /usr/local/etc/pkg/repos
     recurse: yes
     state: directory
+  tags:
+    - configuration
 
 - name: Set up repository path
   template:
@@ -16,6 +18,8 @@
     group: wheel
     mode: '0644'
     backup: yes
+  tags:
+    - configuration
 
 - name: Install basic packages
   pkgng:
@@ -35,6 +39,8 @@
       - vuxml
     autoremove: yes
     state: present
+  tags:
+    - packages
 
 - name: Setup production malloc
   file:
@@ -45,6 +51,8 @@
     owner: root
     group: wheel
     mode: 644
+  tags:
+    - configuration
 
 - name: Ensure some packages are not installed
   pkgng:
@@ -52,22 +60,32 @@
       - sl
     autoremove: yes
     state: absent
+  tags:
+    - cleanup
 
 - sysrc:
     name: syslogd_flags
     state: present
     value: -ss
+  tags:
+    - configuration
 
 - sysrc:
     name: zfs_enable
     state: present
     value: yes
+  tags:
+    - configuration
 
 - sysrc:
     name: hostname
     value: "{{ inventory_hostname }}"
     state: present
+  tags:
+    - configuration
 
 - service:
     name: syslogd
     state: started
+  tags:
+    - services
