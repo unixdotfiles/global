@@ -79,3 +79,5 @@
     group: wheel
     mode: '0644'
     backup: yes
+
+- include_tasks: poudriere.yml
