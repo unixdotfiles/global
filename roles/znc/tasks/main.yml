@@ -2,6 +2,9 @@
     name: znc
     gid: 2004
     state: present
+  tags:
+    - account
+    - serviceaccount
 
 - user:
     name: znc
@@ -10,6 +13,9 @@
     shell: /usr/sbin/nologin
     state: present
     home: /home/znc
+  tags:
+    - account
+    - serviceaccount
 
 - name: Install packages for znc
   pkgng:
@@ -20,4 +26,11 @@
     state: present
   tags:
     - packages
+
+- sysrc:
+    name: znc_enable
+    value: "YES"
+    state: present
+  tags:
+    - configuration
 
