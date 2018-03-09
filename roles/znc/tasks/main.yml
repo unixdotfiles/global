@@ -11,6 +11,14 @@
     state: present
     createhome: false
 
+- name: create znc log location
+  file:
+    path: /data/znc
+    state: directory
+    owner: root
+    group: wheel
+    mode: 0750
+
 - name: Install packages for znc
   pkgng:
     name:
