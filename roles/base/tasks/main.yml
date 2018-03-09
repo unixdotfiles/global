@@ -20,6 +20,7 @@
 - name: Install packages useful for base
   pkgng:
     name:
+      - ansible
       - zfs-stats
     autoremove: yes
     state: present
