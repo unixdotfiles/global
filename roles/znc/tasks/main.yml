@@ -1,0 +1,13 @@
+- group:
+    name: znc
+    gid: 2004
+    state: present
+
+- user:
+    name: znc
+    uid: 2004
+    group: znc
+    shell: /usr/sbin/nologin
+    state: present
+    createhome: false
+

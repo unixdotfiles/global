@@ -48,6 +48,11 @@
   roles:
     - vpn
 
+- name:
+  hosts: znc
+  roles:
+    - znc
+
 - name: apply to everything
   hosts: all
 
