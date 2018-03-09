@@ -11,3 +11,13 @@
     state: present
     createhome: false
 
+- name: Install packages for znc
+  pkgng:
+    name:
+      - znc
+      - zfs-stats
+    autoremove: yes
+    state: present
+  tags:
+    - packages
+
