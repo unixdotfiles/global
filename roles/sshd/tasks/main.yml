@@ -5,3 +5,5 @@
 - name: create ssh_host_ecdsa_key
   command: /usr/bin/ssh-keygen -A
   when: ssh_host_ecdsa_key.stat.exists is defined and not ssh_host_ecdsa_key.stat.exists
+  tags:
+    - access
