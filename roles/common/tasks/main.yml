@@ -21,17 +21,6 @@
   tags:
     - configuration
 
-- name: Set up pkgng configuration
-  template:
-    src: pkg.conf
-    dest: /usr/local/etc/pkg.conf
-    owner: root
-    group: wheel
-    mode: '0644'
-    backup: yes
-  tags:
-    - configuration
-
 - name: Install basic packages
   pkgng:
     name:

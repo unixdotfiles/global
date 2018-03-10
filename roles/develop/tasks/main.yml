@@ -85,4 +85,15 @@
     mode: '0644'
     backup: yes
 
+- name: Set up pkgng configuration
+  template:
+    src: pkg.conf
+    dest: /usr/local/etc/pkg.conf
+    owner: root
+    group: wheel
+    mode: '0644'
+    backup: yes
+  tags:
+    - configuration
+
 - include_tasks: poudriere.yml
