@@ -14,6 +14,8 @@
       - subversion
       - cvs
       - hs-ShellCheck
+      - gcc7
+      - mercurial
     autoremove: yes
     state: present
   tags:
@@ -40,6 +42,8 @@
     - /srv/src
     - /srv/rosrc
     - /srv/obj
+  tags:
+    - sourcecode
 
 - name: mount read-only copy of source
   mount:
@@ -48,6 +52,8 @@
     fstype: nullfs
     opts: ro,late,noauto
     state: mounted
+  tags:
+    - sourcecode
 
 - name: Build FreeBSD with special options
   template:
@@ -57,6 +63,8 @@
     group: wheel
     mode: '0644'
     backup: yes
+  tags:
+    - freebsdbuild
 
 - name: set up /etc/make.conf
   template:
@@ -66,6 +74,8 @@
     group: wheel
     mode: '0644'
     backup: yes
+  tags:
+    - freebsdbuild
 
 - name: set up /etc/src-env.conf
   template:
@@ -75,6 +85,8 @@
     group: wheel
     mode: '0644'
     backup: yes
+  tags:
+    - freebsdbuild
 
 - name: set up /usr/local/etc/ccache.conf
   template:
@@ -84,6 +96,8 @@
     group: wheel
     mode: '0644'
     backup: yes
+  tags:
+    - configuration
 
 - name: Set up pkgng configuration
   template:
