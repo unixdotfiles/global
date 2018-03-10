@@ -21,6 +21,17 @@
   tags:
     - configuration
 
+- name: Set up pkgng configuration
+  template:
+    src: pkg.conf
+    dest: /usr/local/etc/pkg.conf
+    owner: root
+    group: wheel
+    mode: '0644'
+    backup: yes
+  tags:
+    - configuration
+
 - name: Install basic packages
   pkgng:
     name:
@@ -36,6 +47,7 @@
       - pam_google_authenticator
       - zsh
       - vuxml
+      - pkg-provides
     autoremove: yes
     state: present
   tags:
