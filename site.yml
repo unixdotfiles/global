@@ -8,6 +8,17 @@
       raw: test -e /usr/local/bin/python || env ASSUME_ALWAYS_YES=yes pkg install python27
       changed_when: False
 
+- name: gather facts
+  hosts: all
+  tasks:
+    - name: Gathering facts
+      setup:
+
+- name: apply to everything
+  hosts: all
+  roles:
+    - common
+
 - name: apply to host system
   hosts: fasteagle
   roles:
@@ -53,8 +64,3 @@
   roles:
     - znc
 
-- name: apply to everything
-  hosts: all
-
-  roles:
-    - common
