@@ -36,6 +36,7 @@
     - sshd
     - bastion
     - willshersystems.sshd
+    - audit
 
 - name: create development machine
   hosts: develop
