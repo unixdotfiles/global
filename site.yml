@@ -18,7 +18,6 @@
   hosts: all
   roles:
     - common
-    - audit
 
 - name: apply to host system
   hosts: fasteagle
@@ -29,6 +28,7 @@
     - eaxhome
     - willshersystems.sshd
     - power
+    - audit
 
 - name: create ssh bastion
   hosts: bastion
