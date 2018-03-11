@@ -27,7 +27,7 @@
   tags:
     - packages
 
-# --- Required for vinet + jails ---
+# --- vinet + jails ---
 
 - sysctl:
     name: net.inet.ip.forwarding
@@ -72,7 +72,7 @@
 - kld:
     name: amdtemp
     load: true
-    boot: true
+    boot: false
   tags:
     - configuration
     - hardware
@@ -85,6 +85,7 @@
     - configuration
     - networking
 
+# --- Host configuration ---
 - name: Base host configuration options
   template:
     src: src.conf
@@ -113,7 +114,7 @@
       zfs_enable="YES"
       cloned_interfaces="bridge0 bridge1"
       ifconfig_bridge0="addm bge0 up"
-      kld_list="cpuctl dtraceall hwpmc filemon"
+      kld_list="cpuctl dtraceall hwpmc filemon if_tap amdtemp"
     create: yes
     owner: root
     group: wheel
@@ -121,3 +122,5 @@
     state: present
   tags:
     - configuration
+
+- include_tasks: qemu_host.yml

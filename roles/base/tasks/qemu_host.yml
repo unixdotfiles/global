@@ -1,0 +1,17 @@
+- kld:
+    name: if_tap
+    load: true
+    boot: false
+  tags:
+    - configuration
+    - networking
+    - qemu
+
+- sysctl:
+    name: net.link.tap.up_on_open
+    value: 1
+    state: present
+  tags:
+    - configuration
+    - networking
+    - qemu

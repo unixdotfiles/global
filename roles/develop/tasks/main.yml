@@ -16,10 +16,12 @@
       - hs-ShellCheck
       - gcc7
       - mercurial
+      - qemu
     autoremove: yes
     state: present
   tags:
     - packages
+    - qemu
 
 - name: Remove packages I don't want
   pkgng:
@@ -111,3 +113,4 @@
     - configuration
 
 - include_tasks: poudriere.yml
+- include_tasks: qemu_jail.yml
