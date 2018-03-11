@@ -5,6 +5,11 @@
     state: present
 
 - sysctl:
+    name: kern.msgbuf_show_timestamp
+    value: 1
+    state: present
+
+- sysctl:
     name: security.bsd.stack_guard_page
     value: 1
     state: present
