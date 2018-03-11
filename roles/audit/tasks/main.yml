@@ -23,6 +23,18 @@
     - configuration
     - audit
 
+- name: Set up audit users conig
+  template:
+    src: audit_users
+    dest: /etc/security/audit_users
+    owner: root
+    group: wheel
+    mode: '0600'
+    backup: yes
+  tags:
+    - configuration
+    - audit
+
 - name: rotate audit logs regularly
   cron:
     name: rotate audit logs regularly
@@ -61,3 +73,4 @@
   tags:
     - configuration
     - audit
+  when: ansible_hostname == 'fasteagle'
