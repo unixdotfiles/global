@@ -36,7 +36,6 @@
       - pam_google_authenticator
       - zsh
       - vuxml
-      - pkg-provides
     autoremove: yes
     state: present
   tags:

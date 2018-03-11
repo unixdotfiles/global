@@ -17,6 +17,7 @@
       - gcc7
       - mercurial
       - qemu
+      - pkg-provides
     autoremove: yes
     state: present
   tags:
