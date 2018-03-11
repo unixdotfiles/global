@@ -25,8 +25,8 @@
 
 - name: Set up audit users conig
   template:
-    src: audit_users
-    dest: /etc/security/audit_users
+    src: audit_user
+    dest: /etc/security/audit_user
     owner: root
     group: wheel
     mode: '0600'
