@@ -18,6 +18,7 @@
   hosts: all
   roles:
     - common
+    - audit
 
 - name: apply to host system
   hosts: fasteagle

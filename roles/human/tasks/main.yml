@@ -12,7 +12,7 @@
     name: eax
     uid: 1001
     group: eax
-    groups: eax,wheel,ssh_allowed
+    groups: eax,wheel,ssh_allowed,audit
     home: /home/eax
     shell: /usr/local/bin/zsh
     state: present

@@ -1,0 +1,63 @@
+---
+- name: Ensure logs rotate
+  template:
+    src: audit_warn
+    dest: /etc/security/audit_warn
+    owner: root
+    group: wheel
+    mode: '0500' # -r-x------
+    backup: yes
+  tags:
+    - configuration
+    - audit
+
+- name: Set up audit configuration
+  template:
+    src: audit_control
+    dest: /etc/security/audit_control
+    owner: root
+    group: wheel
+    mode: '0600'
+    backup: yes
+  tags:
+    - configuration
+    - audit
+
+- name: rotate audit logs regularly
+  cron:
+    name: rotate audit logs regularly
+    backup: yes
+    cron_file: audit_rotate_log
+    disabled: no
+    env: no
+    job: "/usr/sbin/audit -n"
+    special_time: hourly
+    user: root
+    state: present
+  tags:
+    - configuration
+    - cron
+    - audit
+
+- name: enable auditd service
+  service:
+    name: auditd
+    state: started
+  tags:
+    - services
+    - audit
+
+- name: add audit devfs rules
+  blockinfile:
+    path: /etc/devfs.rules
+    backup: yes
+    block: |
+      add path 'auditpipe*' mode 0440 group audit
+    create: no
+    owner: root
+    group: wheel
+    marker: "# {mark} ANSIBLE MANAGED BLOCK :: auditing"
+    state: present
+  tags:
+    - configuration
+    - audit
