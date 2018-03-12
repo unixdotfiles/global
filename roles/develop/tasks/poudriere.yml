@@ -6,3 +6,14 @@
   tags:
     - packages
 
+- name: set up poudriere.conf
+  template:
+    src: poudriere.conf
+    dest: /usr/local/etc/poudriere.conf
+    owner: root
+    group: wheel
+    mode: '0644'
+    backup: yes
+  tags:
+    - configuration
+
