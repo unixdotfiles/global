@@ -75,40 +75,19 @@
     state: mounted
 
 - kld:
-    name: amdtemp
+    name: "{{ item }}"
     load: true
     boot: false
   tags:
     - configuration
     - hardware
-
-- kld:
-    name: linprocfs
-    load: true
-    boot: false
-  tags:
-    - configuration
-
-- kld:
-    name: linux
-    load: true
-    boot: false
-  tags:
-    - configuration
-
-- kld:
-    name: linux64
-    load: true
-    boot: false
-  tags:
-    - configuration
-
-- kld:
-    name: tmpfs
-    load: true
-    boot: false
-  tags:
-    - configuration
+  with_items:
+    - amdtemp
+    - linprocfs
+    - linux
+    - linux64
+    - tmpfs
+    - nullfs
 
 - sysrc:
     name: ifconfig_bridge0
@@ -146,12 +125,14 @@
       dumpdev="AUTO"
       cloned_interfaces="bridge0 bridge1"
       ifconfig_bridge0="addm bge0 up"
-      kld_list="cpuctl dtraceall hwpmc filemon if_tap amdtemp tmpfs linux linux64"
+      kld_list="cpuctl dtraceall hwpmc filemon if_tap amdtemp tmpfs linux linux64 pf nullfs"
     create: yes
     owner: root
     group: wheel
     marker: "# {mark} ANSIBLE MANAGED BLOCK :: basic"
     state: present
+  notify:
+    - restart kld
   tags:
     - configuration
 

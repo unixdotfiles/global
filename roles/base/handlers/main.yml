@@ -1,0 +1,5 @@
+---
+- name: restart kld
+  service:
+    name: kld
+    state: restarted
