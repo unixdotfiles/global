@@ -90,6 +90,20 @@
     - configuration
 
 - kld:
+    name: linux
+    load: true
+    boot: false
+  tags:
+    - configuration
+
+- kld:
+    name: linux64
+    load: true
+    boot: false
+  tags:
+    - configuration
+
+- kld:
     name: tmpfs
     load: true
     boot: false
@@ -132,7 +146,7 @@
       dumpdev="AUTO"
       cloned_interfaces="bridge0 bridge1"
       ifconfig_bridge0="addm bge0 up"
-      kld_list="cpuctl dtraceall hwpmc filemon if_tap amdtemp"
+      kld_list="cpuctl dtraceall hwpmc filemon if_tap amdtemp tmpfs linux linux64"
     create: yes
     owner: root
     group: wheel
