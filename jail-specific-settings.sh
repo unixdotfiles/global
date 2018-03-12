@@ -1,4 +1,7 @@
 #!/bin/sh
+
+set -eux
+
 iocage set \
   enforce_statfs=1 \
   allow_mount=1 \
@@ -9,3 +12,15 @@ iocage set \
   allow_mount_procfs=1  \
   sysvmsg=new sysvsem=new sysvshm=new \
   develop
+
+zfs set \
+  quota=1G \
+  zroot/iocage/jails/bastion
+
+zfs set \
+  quota=1G \
+  zroot/iocage/jails/znc
+
+zfs set \
+  quota=2G \
+  zroot/iocage/jails/vpn
