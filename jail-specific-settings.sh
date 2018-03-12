@@ -14,6 +14,10 @@ iocage set \
   develop
 
 zfs set \
+  quota=800G \
+  zroot/iocage/jails
+
+zfs set \
   quota=1G \
   zroot/iocage/jails/bastion
 
