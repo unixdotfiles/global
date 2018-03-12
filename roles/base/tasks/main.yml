@@ -82,6 +82,13 @@
     - configuration
     - hardware
 
+- kld:
+    name: linprocfs
+    load: true
+    boot: false
+  tags:
+    - configuration
+
 - sysrc:
     name: ifconfig_bridge0
     value: "addm bge0 up"
@@ -116,7 +123,6 @@
       moused_enable="YES"
       ntpd_enable="YES"
       dumpdev="AUTO"
-      zfs_enable="YES"
       cloned_interfaces="bridge0 bridge1"
       ifconfig_bridge0="addm bge0 up"
       kld_list="cpuctl dtraceall hwpmc filemon if_tap amdtemp"
