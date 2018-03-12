@@ -89,6 +89,13 @@
   tags:
     - configuration
 
+- kld:
+    name: tmpfs
+    load: true
+    boot: false
+  tags:
+    - configuration
+
 - sysrc:
     name: ifconfig_bridge0
     value: "addm bge0 up"
