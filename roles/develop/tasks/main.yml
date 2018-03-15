@@ -18,6 +18,7 @@
       - mercurial
       - qemu
       - pkg-provides
+      - graphviz
     autoremove: yes
     state: present
   tags:
