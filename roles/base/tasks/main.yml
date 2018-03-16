@@ -27,6 +27,7 @@
     name:
       - ansible
       - zfs-stats
+      - devcpu-data
     autoremove: yes
     state: present
   tags:
@@ -96,6 +97,14 @@
   tags:
     - configuration
     - networking
+
+- sysrc:
+    name: microcode_update_enable
+    value: YES
+    state: present
+  tags:
+    - configuration
+    - hardware
 
 # --- Host configuration ---
 - name: Base host configuration options
