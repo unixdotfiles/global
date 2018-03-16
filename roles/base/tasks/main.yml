@@ -14,6 +14,11 @@
     value: 1
     state: present
 
+- sysctl:
+    name: debug.kdb.break_to_debugger
+    value: 1
+    state: present
+
 - name: ensure proc is mounted
   mount:
     path: /proc
