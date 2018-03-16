@@ -19,6 +19,7 @@
       - qemu
       - pkg-provides
       - graphviz
+      - dmidecode
     autoremove: yes
     state: present
   tags:
