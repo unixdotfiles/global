@@ -103,14 +103,6 @@
     - linprocfs
 
 - sysrc:
-    name: ifconfig_bridge0
-    value: "addm bge0 up"
-    state: present
-  tags:
-    - configuration
-    - networking
-
-- sysrc:
     name: microcode_update_enable
     value: YES
     state: present
@@ -150,7 +142,7 @@
       ntpd_enable="YES"
       dumpdev="AUTO"
       cloned_interfaces="bridge0 bridge1"
-      ifconfig_bridge0="addm bge0 up"
+      ifconfig_bridge0="addm igb0 up"
       iocage_enable="YES"
       kld_list="cpuctl dtraceall hwpmc filemon if_tap amdtemp tmpfs linux linux64 pf nullfs intpm"
     create: yes
@@ -162,5 +154,6 @@
     - restart kld
   tags:
     - configuration
+    - networking
 
 - include_tasks: qemu_host.yml
