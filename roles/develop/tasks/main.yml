@@ -20,6 +20,7 @@
       - pkg-provides
       - graphviz
       - dmidecode
+      - mtr
     autoremove: yes
     state: present
   tags:
