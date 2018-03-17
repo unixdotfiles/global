@@ -33,6 +33,8 @@
       - ansible
       - zfs-stats
       - devcpu-data
+      - xmbmon
+      - bsdhwmon
     autoremove: yes
     state: present
   tags:
