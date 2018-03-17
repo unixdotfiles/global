@@ -88,12 +88,19 @@
     - configuration
     - hardware
   with_items:
+    - cpuctl
+    - dtraceall
+    - hwpmc
+    - filemon
+    - if_tap
     - amdtemp
-    - linprocfs
+    - tmpfs
     - linux
     - linux64
-    - tmpfs
+    - pf
     - nullfs
+    - intpm
+    - linprocfs
 
 - sysrc:
     name: ifconfig_bridge0
@@ -139,7 +146,7 @@
       dumpdev="AUTO"
       cloned_interfaces="bridge0 bridge1"
       ifconfig_bridge0="addm bge0 up"
-      kld_list="cpuctl dtraceall hwpmc filemon if_tap amdtemp tmpfs linux linux64 pf nullfs"
+      kld_list="cpuctl dtraceall hwpmc filemon if_tap amdtemp tmpfs linux linux64 pf nullfs intpm"
     create: yes
     owner: root
     group: wheel
