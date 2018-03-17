@@ -18,6 +18,7 @@ iocage set \
   allow_sysvipc=0 \
   sysvmsg=new sysvsem=new sysvshm=new \
   children_max=1000 \
+  devfs_ruleset=10 \
   develop
 
 iocage set \
