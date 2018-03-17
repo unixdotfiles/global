@@ -1,4 +1,13 @@
 ---
+- name: ensure jail has networking
+  hosts: bastion znc develop vpn
+  gather_facts: False
+
+  pre_tasks:
+    - name: run dhclient
+      raw: /sbin/dhclient vnet0
+      changed_when: False
+
 - name: add python if not installed
   hosts: all
   gather_facts: False
