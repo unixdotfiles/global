@@ -76,7 +76,7 @@
   mount:
     path: /dev/fd
     fstype: fdescfs
-    src: "null"
+    src: fdescfs
     opts: rw
     state: mounted
 
