@@ -156,4 +156,21 @@
     - configuration
     - networking
 
+- name: set up console and boot options
+  blockinfile:
+    path: /boot/loader.conf
+    backup: yes
+    block: |
+      boot_multicons="YES"
+      boot_serial="YES"
+      comconsole_speed="115200"
+      console="comconsole,vidconsole"
+    create: yes
+    owner: root
+    group: wheel
+    state: present
+    marker: "# {mark} ANSIBLE MANAGED BLOCK :: console"
+  tags:
+    - configuration
+
 - include_tasks: qemu_host.yml
