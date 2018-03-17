@@ -74,6 +74,7 @@
       add include $devfsrules_unhide_login
       add path zfs unhide
       add path 'bpf*' unhide
+      add path 'mem*' unhide
       add path 'dtrace*' unhide
       add path 'auditpipe*' mode 0440 group audit
     create: no
