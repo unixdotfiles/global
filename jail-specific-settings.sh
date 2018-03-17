@@ -20,6 +20,10 @@ iocage set \
   children_max=1000 \
   develop
 
+iocage set \
+  securelevel=3 \
+  bastion
+
 zfs set \
   quota=800G \
   zroot/iocage/jails
