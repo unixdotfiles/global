@@ -21,6 +21,7 @@
       - graphviz
       - dmidecode
       - mtr
+      - lsof
     autoremove: yes
     state: present
   tags:
