@@ -118,6 +118,11 @@
     - configuration
     - hardware
 
+- service:
+    name: iocage
+    state: started
+  tags:
+    - services
 # --- Host configuration ---
 - name: Base host configuration options
   template:
@@ -146,6 +151,7 @@
       dumpdev="AUTO"
       cloned_interfaces="bridge0 bridge1"
       ifconfig_bridge0="addm bge0 up"
+      iocage_enable="YES"
       kld_list="cpuctl dtraceall hwpmc filemon if_tap amdtemp tmpfs linux linux64 pf nullfs intpm"
     create: yes
     owner: root
