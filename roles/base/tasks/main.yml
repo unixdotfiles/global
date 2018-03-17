@@ -42,6 +42,26 @@
 
 # --- vinet + jails ---
 
+- name: add jail devfs rules
+  blockinfile:
+    path: /etc/devfs.rules
+    backup: yes
+    block: |
+      [devfsrules_jail_dhcp=5]
+      add include $devfsrules_hide_all
+      add include $devfsrules_unhide_basic
+      add include $devfsrules_unhide_login
+      add path zfs unhide
+      add path 'bpf*' unhide
+      add path 'auditpipe*' mode 0440 group audit
+    create: no
+    owner: root
+    group: wheel
+    marker: "# {mark} ANSIBLE MANAGED BLOCK :: jail"
+    state: present
+  tags:
+    - configuration
+    - audit
 - sysctl:
     name: net.inet.ip.forwarding
     value: 1

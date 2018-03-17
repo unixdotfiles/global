@@ -59,22 +59,6 @@
     - services
     - audit
 
-- name: add audit devfs rules
-  blockinfile:
-    path: /etc/devfs.rules
-    backup: yes
-    block: |
-      add path 'auditpipe*' mode 0440 group audit
-    create: no
-    owner: root
-    group: wheel
-    marker: "# {mark} ANSIBLE MANAGED BLOCK :: auditing"
-    state: present
-  tags:
-    - configuration
-    - audit
-  when: ansible_hostname == 'fasteagle'
-
 - name: ensure the service is running
   service:
     name: auditd
