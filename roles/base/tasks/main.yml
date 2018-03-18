@@ -76,6 +76,7 @@
       add path 'bpf*' unhide
       add type 'mem' unhide
       add path 'dtrace*' unhide
+      add path 'filemon*' unhide
       add path 'auditpipe*' mode 0440 group audit
     create: no
     owner: root

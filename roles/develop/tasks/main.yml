@@ -22,6 +22,7 @@
       - dmidecode
       - mtr
       - lsof
+      - hub
     autoremove: yes
     state: present
   tags:
