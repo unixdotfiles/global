@@ -1,11 +1,11 @@
 ---
 - zfs_facts:
-    name: zroot/code/obj
-  register: zrootcodeobj_exists
+    name: zroot/usr/obj
+  register: zrootusrobj_exists
   ignore_errors: True
 
 - zfs:
-    name: zroot/code/obj
+    name: zroot/usr/obj
     state: present
     atime: off
     canmount: on
@@ -17,25 +17,25 @@
     redundant_metadata: most
     logbias: throughput
     sync: disabled
-  when: zrootcodeobj_exists|failed
+  when: zrootusrobj_exists|failed
 
 - zfs_facts:
-    name: zroot/code/obj@empty
-  register: zrootcodeobj_empty_exists
+    name: zroot/usr/obj@empty
+  register: zrootusrobj_empty_exists
   ignore_errors: True
 
 - zfs:
-    name: zroot/code/obj@empty
+    name: zroot/usr/obj@empty
     state: present
-  when: zrootcodeobj_empty_exists|failed
+  when: zrootusrobj_empty_exists|failed
 
 - zfs_facts:
-    name: zroot/code/src
-  register: zrootcodesrc_exists
+    name: zroot/usr/src
+  register: zrootusrsrc_exists
   ignore_errors: True
 
 - zfs:
-    name: zroot/code/src
+    name: zroot/usr/src
     state: present
     atime: off
     canmount: on
@@ -48,4 +48,4 @@
     logbias: latency
     sync: disabled
     utf8only: on
-  when: zrootcodesrc_exists|failed
+  when: zrootusrsrc_exists|failed
