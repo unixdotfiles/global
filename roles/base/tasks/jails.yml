@@ -1,0 +1,82 @@
+---
+- name: add jail devfs rules
+  blockinfile:
+    path: /etc/devfs.rules
+    backup: yes
+    block: |
+      [devfsrules_jail_dhcp=5]
+      add include $devfsrules_hide_all
+      add include $devfsrules_unhide_basic
+      add include $devfsrules_unhide_login
+      add path zfs unhide
+      add path 'bpf*' unhide
+      add path 'auditpipe*' mode 0440 group audit
+    create: no
+    owner: root
+    group: wheel
+    marker: "# {mark} ANSIBLE MANAGED BLOCK :: jail"
+    state: present
+  tags:
+    - configuration
+    - audit
+
+- name: add development jail devfs rules
+  blockinfile:
+    path: /etc/devfs.rules
+    backup: yes
+    block: |
+      [devfsrules_jail_development=10]
+      add include $devfsrules_hide_all
+      add include $devfsrules_unhide_basic
+      add include $devfsrules_unhide_login
+      add path zfs unhide
+      add path 'bpf*' unhide
+      add type 'mem' unhide
+      add path 'dtrace*' unhide
+      add path 'filemon*' unhide
+      add path 'auditpipe*' mode 0440 group audit
+    create: no
+    owner: root
+    group: wheel
+    marker: "# {mark} ANSIBLE MANAGED BLOCK :: devjail"
+    state: present
+  tags:
+    - configuration
+
+- sysctl:
+    name: net.inet.ip.forwarding
+    value: 1
+    state: present
+  tags:
+    - configuration
+    - networking
+
+- sysctl:
+    name: net.link.bridge.pfil_onlyip
+    value: 0
+    state: present
+  tags:
+    - configuration
+    - networking
+
+- sysctl:
+    name: net.link.bridge.pfil_bridge
+    value: 0
+    state: present
+  tags:
+    - configuration
+    - networking
+
+- sysctl:
+    name: net.link.bridge.pfil_member
+    value: 0
+    state: present
+  tags:
+    - configuration
+    - networking
+
+- service:
+    name: iocage
+    state: started
+  tags:
+    - services
