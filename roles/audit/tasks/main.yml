@@ -51,18 +51,11 @@
     - cron
     - audit
 
-- name: enable auditd service
-  service:
-    name: auditd
-    state: started
-  tags:
-    - services
-    - audit
-
-- name: ensure the service is running
-  service:
-    name: auditd
-    enabled: yes
-    state: started
-  tags:
-    - audit
+#- name: ensure the service is running
+#  service:
+#    name: auditd
+#    enabled: yes
+#    state: started
+#  tags:
+#    - services
+#    - audit

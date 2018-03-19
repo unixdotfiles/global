@@ -71,9 +71,3 @@
   tags:
     - configuration
     - networking
-
-- service:
-    name: iocage
-    state: started
-  tags:
-    - services
