@@ -49,25 +49,25 @@
     user: bastion
     state: present
 
-- name: Insert TOTP before primary auth
-  pamd:
-    name: sshd
-    type: auth
-    control: required
-    module_path: pam_unix.so
-    new_type: auth
-    new_control: required
-    new_module_path: pam_google_authenticator.so
-    state: after
-
-- name: Ensure TOTP has correct arguments
-  pamd:
-    name: sshd
-    type: auth
-    control: required
-    module_path: pam_google_authenticator.so
-    module_arguments: 'secret=/opt/bastion/totp/${USER}/config debug echo_verification_code'
-    state: args_present
+#- name: Insert TOTP before primary auth
+#  pamd:
+#    name: sshd
+#    type: auth
+#    control: required
+#    module_path: pam_unix.so
+#    new_type: auth
+#    new_control: required
+#    new_module_path: pam_google_authenticator.so
+#    state: after
+#
+#- name: Ensure TOTP has correct arguments
+#  pamd:
+#    name: sshd
+#    type: auth
+#    control: required
+#    module_path: pam_google_authenticator.so
+#    module_arguments: 'secret=/opt/bastion/totp/${USER}/config debug echo_verification_code'
+#    state: args_present
 
 - name: Remove password prompt
   pamd:
