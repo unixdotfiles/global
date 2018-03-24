@@ -48,15 +48,6 @@
     - willshersystems.sshd
     - audit
 
-- name: create development machine
-  hosts: develop
-  roles:
-    - sshd
-    - human
-    - eaxhome
-    - develop
-    - willshersystems.sshd
-
 - name: create laptop
   hosts: freeingeagle
   roles:
