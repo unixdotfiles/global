@@ -50,7 +50,7 @@
     path: /dev/fd
     fstype: fdescfs
     src: fdescfs
-    opts: rw
+    opts: rw,late
     state: mounted
 
 - kld:
