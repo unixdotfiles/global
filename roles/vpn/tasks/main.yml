@@ -2,7 +2,6 @@
   pkgng:
     name:
       - openvpn
-    autoremove: yes
     state: present
 
 - group:

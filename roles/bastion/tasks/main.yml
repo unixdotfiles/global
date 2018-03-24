@@ -82,7 +82,6 @@
   pkgng:
     name:
       - pam_google_authenticator
-    autoremove: yes
     state: present
   tags:
     - packages

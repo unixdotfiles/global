@@ -8,7 +8,6 @@
       - rxvt-unicode
       - xbindkeys
       - xclip
-    autoremove: yes
     state: present
   tags:
     - packages

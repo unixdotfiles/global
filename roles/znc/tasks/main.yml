@@ -22,7 +22,6 @@
     name:
       - znc
       - zfs-stats
-    autoremove: yes
     state: present
   tags:
     - packages

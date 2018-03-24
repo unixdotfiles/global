@@ -24,7 +24,6 @@
       - lsof
       - hub
       - cmake
-    autoremove: yes
     state: present
   tags:
     - packages
