@@ -38,6 +38,7 @@
     - willshersystems.sshd
     - power
     - audit
+    - develop
 
 - name: create ssh bastion
   hosts: bastion

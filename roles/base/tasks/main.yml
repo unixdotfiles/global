@@ -85,17 +85,6 @@
     - hardware
 
 # --- Host configuration ---
-- name: Base host configuration options
-  template:
-    src: src.conf
-    dest: /etc/src.conf
-    owner: root
-    group: wheel
-    mode: '0644'
-    backup: yes
-  tags:
-    - configuration
-
 - name: add basic rc.conf values
   blockinfile:
     path: /etc/rc.conf

@@ -23,20 +23,8 @@
   blockinfile:
     path: /etc/devfs.rules
     backup: yes
-    block: |
-      [devfsrules_jail_development=10]
-      add include $devfsrules_hide_all
-      add include $devfsrules_unhide_basic
-      add include $devfsrules_unhide_login
-      add include $devfsrules_jail_dhcp
-      add type 'mem' unhide
-      add path 'dtrace*' unhide
-      add path 'filemon*' unhide
-    create: no
-    owner: root
-    group: wheel
     marker: "# {mark} ANSIBLE MANAGED BLOCK :: devjail"
-    state: present
+    state: absent
   tags:
     - configuration
 
