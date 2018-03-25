@@ -88,7 +88,7 @@
     - hardware
 
 # --- Host configuration ---
-- name: add basic rc.conf values
+- name: configure rc.conf
   blockinfile:
     path: /etc/rc.conf
     backup: yes
@@ -103,6 +103,8 @@
       moused_enable="YES"
       ntpd_enable="YES"
       dumpdev="AUTO"
+      # bridge0 - jails
+      # bridge1 - bhyve
       cloned_interfaces="bridge0 bridge1"
       ifconfig_bridge0="addm igb0 up"
       iocage_enable="YES"
