@@ -77,6 +77,7 @@
     - smbus
     - ksyms
     - vmm
+    - nmdm
 
 - sysrc:
     name: microcode_update_enable
@@ -105,7 +106,7 @@
       cloned_interfaces="bridge0 bridge1"
       ifconfig_bridge0="addm igb0 up"
       iocage_enable="YES"
-      kld_list="cpuctl dtraceall hwpmc filemon if_tap amdtemp tmpfs linux linux64 pf nullfs intpm smbus ksyms vmm"
+      kld_list="cpuctl dtraceall hwpmc filemon if_tap amdtemp tmpfs linux linux64 pf nullfs intpm smbus ksyms vmm nmdm"
     create: yes
     owner: root
     group: wheel
