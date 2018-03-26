@@ -123,6 +123,18 @@
     - configuration
     - networking
 
+- name: syslog logging config
+  template:
+    src: syslog.conf
+    dest: /etc/syslog.conf
+    owner: root
+    group: wheel
+    mode: '0500' # -r-x------
+    backup: yes
+  tags:
+    - configuration
+    - logging
+
 #- name: set up console and boot options
 #  blockinfile:
 #    path: /boot/loader.conf

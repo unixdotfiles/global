@@ -17,7 +17,7 @@
     dest: /etc/security/audit_control
     owner: root
     group: wheel
-    mode: '0600'
+    mode: '0644'
     backup: yes
   tags:
     - configuration
