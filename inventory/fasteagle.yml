@@ -11,8 +11,6 @@ all:
       hosts:
         bastion:
           ansible_host: ioc-bastion
-        develop:
-          ansible_host: ioc-develop
         vpn:
           ansible_host: ioc-vpn
         znc:
