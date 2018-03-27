@@ -26,6 +26,10 @@
       - cmake
       - rsync
       - openjdk8
+      - php71
+      - php71-curl
+      - php71-json
+      - php71-simplexml
     state: present
   tags:
     - packages
