@@ -24,6 +24,8 @@
       - lsof
       - hub
       - cmake
+      - rsync
+      - openjdk8
     state: present
   tags:
     - packages
