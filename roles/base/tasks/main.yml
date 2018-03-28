@@ -55,8 +55,8 @@
 - name: Load kernel modules
   kld:
     name: "{{ item }}"
-    load: true
-    boot: false
+    load: True
+    boot: False
   tags:
     - configuration
     - hardware
