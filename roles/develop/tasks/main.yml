@@ -32,6 +32,7 @@
       - php71-simplexml
       - py36-pycodestyle
       - py36-autopep8
+      - pciutils
     state: present
   tags:
     - packages
