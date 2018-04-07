@@ -33,6 +33,7 @@
       - py36-pycodestyle
       - py36-autopep8
       - pciutils
+      - py36-asciinema
     state: present
   tags:
     - packages
