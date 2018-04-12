@@ -32,6 +32,14 @@
     opts: rw
     state: mounted
 
+- name: ensure linproc is mounted
+  mount:
+    path: /compat/linux/proc
+    fstype: linprocfs
+    src: linproc
+    opts: rw
+    state: mounted
+
 - name: Install packages useful for base
   pkgng:
     name:
