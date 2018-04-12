@@ -34,6 +34,7 @@
       - py36-autopep8
       - pciutils
       - py36-asciinema
+      - gdb
     state: present
   tags:
     - packages
