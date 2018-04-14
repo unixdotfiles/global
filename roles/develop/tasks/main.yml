@@ -35,6 +35,7 @@
       - pciutils
       - py36-asciinema
       - gdb
+      - scala
     state: present
   tags:
     - packages
