@@ -32,7 +32,6 @@
   hosts: fasteagle
   roles:
     - base
-    - storage
     - human
     - eaxhome
     - willshersystems.sshd
