@@ -29,7 +29,7 @@
     path: /proc
     fstype: procfs
     src: proc
-    opts: rw
+    opts: rw,late
     state: mounted
 
 - name: ensure linproc is mounted
@@ -37,7 +37,7 @@
     path: /compat/linux/proc
     fstype: linprocfs
     src: linproc
-    opts: rw
+    opts: rw,late
     state: mounted
 
 - name: Install packages useful for base
