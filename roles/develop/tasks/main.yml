@@ -36,10 +36,12 @@
       - py36-asciinema
       - gdb
       - scala
+      - nginx
     state: present
   tags:
     - packages
     - qemu
+    - nginx
 
 - name: Remove packages I don't want
   pkgng:
