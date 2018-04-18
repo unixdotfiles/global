@@ -40,7 +40,6 @@
   tags:
     - packages
     - qemu
-    - nginx
 
 - name: Remove packages I don't want
   pkgng:

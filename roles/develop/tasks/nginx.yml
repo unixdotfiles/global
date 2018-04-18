@@ -15,6 +15,8 @@
     group: wheel
     mode: '0644'
     backup: yes
+  notify:
+    - restart nginx
   tags:
     - configuration
     - nginx
@@ -35,6 +37,16 @@
     group: wheel
     mode: '0644'
     backup: yes
+  notify:
+    - restart nginx
   tags:
     - configuration
+    - nginx
+
+- name: ensure nginx is started (and enable at boot)
+  service:
+    name: nginx
+    state: started
+    enabled: yes
+  tags:
     - nginx
