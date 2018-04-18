@@ -1,0 +1,40 @@
+- name: Install packages required for nginx
+  pkgng:
+    name:
+      - nginx-devel
+    state: present
+  tags:
+    - packages
+    - nginx
+
+- name: set up nginx root config
+  template:
+    src: nginx.conf
+    dest: /usr/local/etc/nginx/nginx.conf
+    owner: root
+    group: wheel
+    mode: '0644'
+    backup: yes
+  tags:
+    - configuration
+    - nginx
+
+- name: create sites-enabled directory
+  file:
+    name: /usr/local/etc/nginx/sites-enabled
+    state: directory
+  tags:
+    - configuration
+    - nginx
+
+- name: set up nginx root config
+  template:
+    src: devbox.conf
+    dest: /usr/local/etc/nginx/sites-enabled/devbox.conf
+    owner: root
+    group: wheel
+    mode: '0644'
+    backup: yes
+  tags:
+    - configuration
+    - nginx

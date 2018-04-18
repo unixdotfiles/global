@@ -134,3 +134,4 @@
 
 - include_tasks: poudriere.yml
 - include_tasks: qemu_jail.yml
+- include_tasks: nginx.yml
