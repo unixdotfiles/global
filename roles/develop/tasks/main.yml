@@ -37,6 +37,7 @@
       - gdb
       - scala
       - py36-virtualenv
+      - swi-pl
     state: present
   tags:
     - packages
