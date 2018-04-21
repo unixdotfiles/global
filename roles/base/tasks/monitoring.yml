@@ -1,0 +1,24 @@
+---
+- name: Install packages for monitoring
+  pkgng:
+    name:
+      - grafana4
+      - telegraf
+      - influxdb
+    state: present
+  tags:
+    - packages
+    - monitoring
+  
+- name: Configure montitoring services
+- sysrc:
+    name: {{ item }}
+    value: YES
+    state: present
+  with_items:
+    - grafana
+    - telegraf
+    - influxdb
+  tags:
+    - configuration
+    - monitoring

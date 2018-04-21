@@ -165,3 +165,4 @@
 #
 - include_tasks: qemu_host.yml
 - include_tasks: jails.yml
+- include_tasks: monitoring.yml
