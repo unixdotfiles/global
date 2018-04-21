@@ -5,13 +5,14 @@
       - grafana5
       - telegraf
       - influxdb
+      - kapacitor
     state: present
   tags:
     - packages
     - monitoring
   
 - name: Configure montitoring services
-- sysrc:
+  sysrc:
     name: "{{ item }}"
     value: YES
     state: present
@@ -19,6 +20,7 @@
     - grafana
     - telegraf
     - influxdb
+    - kapacitor
   tags:
     - configuration
     - monitoring
