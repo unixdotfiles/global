@@ -38,6 +38,8 @@
       - scala
       - py36-virtualenv
       - swi-pl
+      - yarn
+      - go
     state: present
   tags:
     - packages
