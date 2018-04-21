@@ -2,7 +2,7 @@
 - name: Install packages for monitoring
   pkgng:
     name:
-      - grafana4
+      - grafana5
       - telegraf
       - influxdb
     state: present
