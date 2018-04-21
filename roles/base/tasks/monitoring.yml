@@ -12,7 +12,7 @@
   
 - name: Configure montitoring services
 - sysrc:
-    name: {{ item }}
+    name: "{{ item }}"
     value: YES
     state: present
   with_items:
