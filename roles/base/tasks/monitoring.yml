@@ -24,7 +24,6 @@
     - configuration
     - monitoring
 
-
 - name: allow telegraf to do useful things
   blockinfile:
     path: /usr/local/etc/sudoers
@@ -37,3 +36,31 @@
     marker: "# {mark} ANSIBLE MANAGED BLOCK :: monitoring"
     validate: 'visudo -cf %s'
     state: present
+  tags:
+    - configuration
+    - monitoring
+
+- name: install telegraf conf
+  template:
+    src: telegraf.conf
+    dest: /usr/local/etc/telegraf.conf
+    owner: root
+    group: wheel
+    mode: '0555' # -r-x------
+    backup: yes
+  tags:
+    - configuration
+    - monitoring
+
+- name: install influxd conf
+  template:
+    src: influxd.conf
+    dest: /usr/local/etc/influxd.conf
+    owner: root
+    group: wheel
+    mode: '0555' # -r-x------
+    backup: yes
+  tags:
+    - configuration
+    - monitoring
+
