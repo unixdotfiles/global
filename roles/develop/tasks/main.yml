@@ -136,6 +136,6 @@
   tags:
     - configuration
 
-- include_tasks: poudriere.yml
-- include_tasks: qemu_jail.yml
-- include_tasks: nginx.yml
+- import_tasks: poudriere.yml
+- import_tasks: qemu_jail.yml
+- import_tasks: nginx.yml

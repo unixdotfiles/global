@@ -163,6 +163,6 @@
 #  tags:
 #    - configuration
 #
-- include_tasks: qemu_host.yml
-- include_tasks: jails.yml
-- include_tasks: monitoring.yml
+- import_tasks: qemu_host.yml
+- import_tasks: jails.yml
+- import_tasks: monitoring.yml
