@@ -2,7 +2,6 @@
 - name: Install packages for monitoring
   pkgng:
     name:
-      - grafana5
       - telegraf
       - influxdb
       - kapacitor
@@ -17,7 +16,6 @@
     value: YES
     state: present
   with_items:
-    - grafana
     - telegraf
     - influxdb
     - kapacitor
