@@ -5,6 +5,7 @@
       - telegraf
       - influxdb
       - kapacitor
+      - smartmontools
     state: present
   tags:
     - packages
