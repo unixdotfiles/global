@@ -22,3 +22,17 @@
   tags:
     - configuration
     - monitoring
+
+
+- name: allow telegraf to do useful things
+  blockinfile:
+    path: /usr/local/etc/sudoers
+    backup: yes
+    block: |
+      daemon ALL=(root) NOPASSWD: /usr/local/sbin/smartctl --scan
+    create: yes
+    owner: root
+    group: wheel
+    marker: "# {mark} ANSIBLE MANAGED BLOCK :: monitoring"
+    validate: 'visudo -cf %s'
+    state: present
