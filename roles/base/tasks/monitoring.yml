@@ -16,7 +16,7 @@
     name: "{{ item }}_enable"
     value: YES
     state: present
-  with_items:
+  loop:
     - telegraf
     - influxd
     - kapacitor

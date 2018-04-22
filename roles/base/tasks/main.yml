@@ -68,7 +68,7 @@
   tags:
     - configuration
     - hardware
-  with_items:
+  loop:
     - cpuctl
     - dtraceall
     - hwpmc
