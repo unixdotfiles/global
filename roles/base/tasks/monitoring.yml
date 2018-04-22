@@ -3,7 +3,7 @@
   pkgng:
     name:
       - telegraf
-      - influxd
+      - influxdb
       - kapacitor
       - smartmontools
     state: present
