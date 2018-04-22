@@ -3,7 +3,7 @@
   pkgng:
     name:
       - telegraf
-      - influxdb
+      - influxd
       - kapacitor
       - smartmontools
     state: present
@@ -18,7 +18,7 @@
     state: present
   with_items:
     - telegraf
-    - influxdb
+    - influxd
     - kapacitor
   tags:
     - configuration
@@ -46,8 +46,10 @@
     dest: /usr/local/etc/telegraf.conf
     owner: root
     group: wheel
-    mode: '0555' # -r-x------
+    mode: '0555'
     backup: yes
+    variable_start_string: 'dont-do-anything-with-template-beyond-copy'
+    variable_end_string: 'dont-do-anything-with-template-beyond-copy'
   tags:
     - configuration
     - monitoring
@@ -58,9 +60,8 @@
     dest: /usr/local/etc/influxd.conf
     owner: root
     group: wheel
-    mode: '0555' # -r-x------
+    mode: '0555'
     backup: yes
   tags:
     - configuration
     - monitoring
-
