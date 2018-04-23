@@ -98,6 +98,7 @@
     - pflog
     - siftr
     - cryptodev
+    - amdsbwd
 
 - sysrc:
     name: microcode_update_enable
@@ -130,7 +131,7 @@
       ifconfig_bridge0="addm igb0 up"
       iocage_enable="YES"
       powerd_enable="YES"
-      kld_list="cpuctl dtraceall hwpmc filemon if_tap amdtemp tmpfs linux linux64 pf nullfs intpm smbus ksyms vmm nmdm efirt pflog siftr cryptodev"
+      kld_list="cpuctl dtraceall hwpmc filemon if_tap amdtemp tmpfs linux linux64 pf nullfs intpm smbus ksyms vmm nmdm efirt pflog siftr cryptodev amdsbwd"
     create: yes
     owner: root
     group: wheel
