@@ -32,6 +32,14 @@
     opts: rw,late
     state: mounted
 
+- name: ensure linsysfs is mounted
+  mount:
+    path: /compat/linux/sys
+    fstype: linsysfs
+    src: linsysfs
+    opts: rw,late
+    state: mounted
+
 - name: ensure linproc is mounted
   mount:
     path: /compat/linux/proc
