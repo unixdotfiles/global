@@ -3,3 +3,13 @@
   service:
     name: kld
     state: restarted
+
+- name: restart telegrafd
+  service:
+    name: telegrafd
+    state: restarted
+
+- name: restart influxd
+  service:
+    name: influxd
+    state: restarted

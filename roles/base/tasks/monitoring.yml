@@ -53,6 +53,8 @@
   tags:
     - configuration
     - monitoring
+  notify:
+    - restart telegrafd
 
 - name: install influxd conf
   template:
@@ -65,3 +67,5 @@
   tags:
     - configuration
     - monitoring
+  notify:
+    - restart influxd
