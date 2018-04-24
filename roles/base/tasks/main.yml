@@ -24,6 +24,12 @@
     value: 1
     state: present
 
+- name: set the default accept_rtadv to be reasonable for a host
+  sysctl:
+    name: net.inet6.ip6.accept_rtadv
+    value: 1
+    state: present
+
 - name: ensure proc is mounted
   mount:
     path: /proc
