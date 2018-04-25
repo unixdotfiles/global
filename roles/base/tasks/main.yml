@@ -1,34 +1,41 @@
 ---
-- sysctl:
-    name: kern.randompid
-    value: 1
-    state: present
-
-- sysctl:
-    name: kern.msgbuf_show_timestamp
-    value: 1
-    state: present
-
-- sysctl:
-    name: security.bsd.stack_guard_page
-    value: 1
-    state: present
-
-- sysctl:
-    name: debug.kdb.break_to_debugger
-    value: 1
-    state: present
-
-- sysctl:
-    name: kern.capmode_coredump
-    value: 1
-    state: present
-
-- name: set the default accept_rtadv to be reasonable for a host
+- name: enable various settings
   sysctl:
-    name: net.inet6.ip6.accept_rtadv
+    name: "{{ item }}"
     value: 1
     state: present
+  loop:
+      - kern.randompid
+      - kern.msgbuf_show_timestamp
+      - security.bsd.stack_guard_page
+      - debug.kdb.break_to_debugger
+      - kern.capmode_coredump
+      - net.inet6.ip6.accept_rtadv
+  tags:
+    - configuration
+
+- name: set temperature offset for my machine
+  sysctl:
+    name: "dev.amdtemp.{{item}}.sensor_offset"
+    value: -28
+    state: present
+  loop:
+      - 0
+      - 1
+  tags:
+    - configuration
+    - hardware
+
+- name: fail faster for deadlocks
+  sysctl:
+    name: "{{ item }}"
+    value: 300
+    state: present
+  loop:
+      - debug.deadlkres.blktime_threshold
+      - debug.deadlkres.slptime_threshold
+  tags:
+    - configuration
 
 - name: ensure proc is mounted
   mount:
