@@ -36,6 +36,7 @@
       - py36-asciinema
       - gdb
       - scala
+      - sbt
       - py36-virtualenv
       - swi-pl
       - yarn
