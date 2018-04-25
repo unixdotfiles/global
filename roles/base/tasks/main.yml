@@ -150,7 +150,7 @@
     - networking
 
 - name: syslog logging config
-  template:
+  copy:
     src: syslog.conf
     dest: /etc/syslog.conf
     owner: root
