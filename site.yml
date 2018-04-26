@@ -14,7 +14,7 @@
 
   pre_tasks:
     - name: install python
-      raw: test -e /usr/local/bin/python || env ASSUME_ALWAYS_YES=yes pkg install python27
+      raw: test -e /usr/local/bin/python || env ASSUME_ALWAYS_YES=yes pkg install python36
       changed_when: False
 
 - name: gather facts
