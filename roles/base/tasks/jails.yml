@@ -1,4 +1,9 @@
 ---
+- name: Install packages required for jails
+  pkgng:
+    name:
+      - py36-iocage
+
 - name: add jail devfs rules
   blockinfile:
     path: /etc/devfs.rules
