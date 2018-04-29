@@ -29,6 +29,17 @@
     - configuration
     - nginx
 
+- name: create www serving directory
+  file:
+    name: /srv/www
+    state: directory
+    owner: eax
+    group: eax
+    mode: 0755
+  tags:
+    - configuration
+    - nginx
+
 - name: set up nginx root config
   template:
     src: devbox.conf
