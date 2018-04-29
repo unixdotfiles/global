@@ -17,6 +17,14 @@
     shell: /usr/local/bin/zsh
     state: present
 
+- name: create .ssh directory for later use
+  file:
+    path: /home/eax/.ssh
+    state: directory
+    owner: eax
+    group: eax
+    mode: 0700
+
 - name: Allow wheel users to sudo
   lineinfile:
     dest: /usr/local/etc/sudoers
