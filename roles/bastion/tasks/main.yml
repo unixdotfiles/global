@@ -86,3 +86,9 @@
   tags:
     - packages
 
+- sysrc:
+    name: sshd_enable
+    value: yes
+    state: present
+  tags:
+    - configuration
