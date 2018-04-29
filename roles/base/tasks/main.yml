@@ -113,8 +113,9 @@
     - pflog
     - siftr
     - amdsbwd
-    - iwm3160fw.ko
-    -  if_iwm.ko
+    - iwm3160fw
+    - if_iwm
+    - radeonkms
 
 - sysrc:
     name: microcode_update_enable
@@ -156,7 +157,7 @@
       ifconfig_wlan0="WPA DHCP"
       cloned_interfaces="bridge0 tap0"
       ifconfig_bridge0="addm igb0 up"
-      kld_list="cpuctl dtraceall hwpmc filemon if_tap amdtemp tmpfs linux linux64 pf nullfs intpm smbus ksyms vmm nmdm efirt pflog siftr amdsbwd iwm3160fw.ko if_iwm.ko"
+      kld_list="cpuctl dtraceall hwpmc filemon if_tap amdtemp tmpfs linux linux64 pf nullfs intpm smbus ksyms vmm nmdm efirt pflog siftr amdsbwd iwm3160fw.ko if_iwm radeonkms"
     create: yes
     owner: root
     group: wheel
