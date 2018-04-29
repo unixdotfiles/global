@@ -45,7 +45,7 @@
     key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFBbue/RQS6f3KQDQUUXXLj2gQ/Ga6QDODsTfqhj3JP7 eax"
     key_options:
     manage_dir: yes
-    path: /opt/bastion/authorized_keys/totp/bastion
+    path: /opt/bastion/authorized_keys/bastion
     user: bastion
     state: present
 
