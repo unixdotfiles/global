@@ -28,3 +28,10 @@
     - configuration
     - services
     - poudriere
+
+- name: ensure that ccache directory exists for poudriere
+  file:
+    path: /srv/obj/ccache-poudriere
+    state: directory
+    owner: nobody
+    group: nobody
