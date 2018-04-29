@@ -21,17 +21,6 @@
   tags:
     - configuration
 
-- name: Set up local poudriere path
-  template:
-    src: poudriere.conf
-    dest: /usr/local/etc/pkg/repos/poudriere.conf
-    owner: root
-    group: wheel
-    mode: '0644'
-    backup: yes
-  tags:
-    - configuration
-
 - name: Install basic packages
   pkgng:
     name:
