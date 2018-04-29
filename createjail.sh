@@ -4,7 +4,7 @@ iocage \
   ip4_addr=none \
   ip6_addr=none \
   defaultrouter=192.168.200.1 \
-  interfaces=vnet0:bridgejail
+  interfaces=vnet0:bridge0 \
   bpf=yes \
   dhcp=on \
   devfs_ruleset=5 \

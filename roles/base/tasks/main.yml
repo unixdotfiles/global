@@ -154,10 +154,7 @@
       dumpdev="AUTO"
       wlans_iwm0="wlan0"
       ifconfig_wlan0="WPA DHCP"
-      # bridge0 - master bridge
-      # bridge1 - jails
-      # bridge2 - bhyve
-      cloned_interfaces="bridge0 bridge1 bridge2 tap0"
+      cloned_interfaces="bridge0 tap0"
       ifconfig_bridge0="addm igb0 up"
       kld_list="cpuctl dtraceall hwpmc filemon if_tap amdtemp tmpfs linux linux64 pf nullfs intpm smbus ksyms vmm nmdm efirt pflog siftr amdsbwd iwm3160fw.ko if_iwm.ko"
     create: yes
