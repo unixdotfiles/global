@@ -35,8 +35,24 @@
     state: directory
     owner: nobody
     group: nobody
+  tags:
+    - poudriere
 
 - name: ensure that distfile directory exists for poudriere
   file:
     path: /srv/obj/distfiles
     state: directory
+  tags:
+    - poudriere
+
+- name: poudr
+  copy:
+    src: poudriere_default_make.conf
+    dest: /usr/local/etc/poudriere.d/make.conf
+    owner: root
+    group: wheel
+    mode: '0500' # -r-x------
+    backup: yes
+  tags:
+    - configuration
+    - poudriere
