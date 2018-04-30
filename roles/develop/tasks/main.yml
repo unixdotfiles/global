@@ -41,6 +41,8 @@
       - swi-pl
       - yarn
       - go
+      - gmake
+      - npm
     state: present
   tags:
     - packages
