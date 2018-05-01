@@ -43,15 +43,13 @@
     - monitoring
 
 - name: install telegraf conf
-  template:
+  copy:
     src: telegraf.conf
     dest: /usr/local/etc/telegraf.conf
     owner: root
     group: wheel
     mode: '0555'
     backup: yes
-    variable_start_string: 'dont-do-anything-with-template-beyond-copy'
-    variable_end_string: 'dont-do-anything-with-template-beyond-copy'
   tags:
     - configuration
     - monitoring

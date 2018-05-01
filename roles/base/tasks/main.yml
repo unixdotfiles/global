@@ -133,7 +133,6 @@
   loop:
     - rtsold_enable
     - local_unbound_enable
-    - sshd_enable
     - moused_enable
     - ntpd_enable
     - iocage_enable
