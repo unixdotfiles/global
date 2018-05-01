@@ -71,6 +71,7 @@
       - devcpu-data
       - xmbmon
       - bsdhwmon
+      - beadm
     state: present
   tags:
     - packages
