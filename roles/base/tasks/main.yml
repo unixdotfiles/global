@@ -179,7 +179,19 @@
     dest: /etc/syslog.conf
     owner: root
     group: wheel
-    mode: '0500' # -r-x------
+    mode: '0444' # -r-x------
+    backup: yes
+  tags:
+    - configuration
+    - logging
+
+- name: newsyslog config
+  copy:
+    src: newsyslog.conf
+    dest: /etc/newsyslog.conf
+    owner: root
+    group: wheel
+    mode: '0444'
     backup: yes
   tags:
     - configuration
