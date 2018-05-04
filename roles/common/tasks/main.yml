@@ -26,7 +26,7 @@
     name:
       - bash
       - cowsay
-      - git
+      - git-subversion
       - rubygem-ohai
       - jq
       - tmux
