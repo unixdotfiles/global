@@ -173,13 +173,26 @@
     - networking
     - services
 
+- name: loader config
+  copy:
+    src: loader.conf
+    dest: /boot/loader.conf
+    owner: root
+    group: wheel
+    mode: '0400'
+    backup: yes
+  tags:
+    - configuration
+    - logging
+
+
 - name: syslog logging config
   copy:
     src: syslog.conf
     dest: /etc/syslog.conf
     owner: root
     group: wheel
-    mode: '0444' # -r-x------
+    mode: '0444'
     backup: yes
   tags:
     - configuration
