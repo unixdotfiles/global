@@ -39,6 +39,14 @@
   tags:
     - configuration
 
+- name: disable witness
+  sysctl:
+    name: debug.witness.watch
+    value: -1
+    state: present
+  tags:
+    - configuration
+
 - name: ensure proc is mounted
   mount:
     path: /proc
