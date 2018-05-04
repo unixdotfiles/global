@@ -154,7 +154,6 @@
       hostname="fasteagle"
       ifconfig_igb0="SYNCDHCP"
       ifconfig_igb0_ipv6="inet6 accept_rtadv"
-      ifconfig_igb0_alias0="inet 192.168.200.23 netmask 255.255.255.0"
       dumpdev="AUTO"
       wlans_iwm0="wlan0"
       ifconfig_wlan0="WPA DHCP indoor debug"
