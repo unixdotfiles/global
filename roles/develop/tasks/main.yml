@@ -43,6 +43,7 @@
       - go
       - gmake
       - npm
+      - groff
     state: present
   tags:
     - packages
