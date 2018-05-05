@@ -45,7 +45,7 @@
   tags:
     - poudriere
 
-- name: poudr
+- name: poudriere make.conf
   copy:
     src: poudriere_default_make.conf
     dest: /usr/local/etc/poudriere.d/make.conf
