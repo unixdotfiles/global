@@ -125,7 +125,7 @@
     - amdsbwd
     - iwm3160fw
     - if_iwm
-    - /boot/kernel/radeonkms.ko
+#   - /boot/kernel/radeonkms.ko
 
 - sysrc:
     name: microcode_update_enable
