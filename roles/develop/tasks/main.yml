@@ -44,6 +44,9 @@
       - gmake
       - npm
       - groff
+      - py36-pip
+      - R
+      - lua52-luarocks
     state: present
   tags:
     - packages
