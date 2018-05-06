@@ -47,6 +47,7 @@
       - py36-pip
       - R
       - lua52-luarocks
+      - texinfo # for makeinfo for gdb compilation
     state: present
   tags:
     - packages
