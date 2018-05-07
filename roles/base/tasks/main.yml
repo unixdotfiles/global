@@ -146,7 +146,6 @@
     - moused_enable
     - ntpd_enable
     - iocage_enable
-    - powerd_enable
     - zfsd_enable
   tags:
     - configuration

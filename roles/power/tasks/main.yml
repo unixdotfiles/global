@@ -5,5 +5,27 @@
     sysctl_set: yes
     state: present
   tags:
-    - configuration
+    - power
     - hardware
+    - configuration
+
+- name: permit lower power usage
+  sysctl:
+    name: hw.acpi.cpu.cx_lowest
+    value: C3
+    state: present
+  tags:
+    - power
+    - hardware
+    - configuration
+
+- sysrc:
+    name: "{{ item }}"
+    value: YES
+    state: present
+  loop:
+    - powerd_enable
+  tags:
+    - power
+    - configuration
+    - services
