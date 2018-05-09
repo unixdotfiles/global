@@ -26,10 +26,10 @@
       - cmake
       - rsync
       - openjdk8
-      - php71
-      - php71-curl
-      - php71-json
-      - php71-simplexml
+      - php72
+      - php72-curl
+      - php72-json
+      - php72-simplexml
       - py36-pycodestyle
       - py36-autopep8
       - pciutils
