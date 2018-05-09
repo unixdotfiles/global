@@ -49,6 +49,7 @@
       - lua52-luarocks
       - texinfo # for makeinfo for gdb compilation
       - htop
+      - iverilog
     state: present
   tags:
     - packages
