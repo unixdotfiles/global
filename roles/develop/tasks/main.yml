@@ -48,6 +48,7 @@
       - R
       - lua52-luarocks
       - texinfo # for makeinfo for gdb compilation
+      - htop
     state: present
   tags:
     - packages
