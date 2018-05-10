@@ -82,6 +82,7 @@
       - bsdhwmon
       - beadm
       - drm-next-kmod
+      - bsdstats
     state: present
   tags:
     - packages
