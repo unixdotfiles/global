@@ -50,6 +50,7 @@
       - texinfo # for makeinfo for gdb compilation
       - htop
       - iverilog
+      - gnupg
     state: present
   tags:
     - packages
