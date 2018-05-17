@@ -6,7 +6,6 @@
       - influxdb
       - kapacitor
       - smartmontools
-      - osquery
     state: present
   tags:
     - packages
@@ -21,7 +20,6 @@
     - telegraf
     - influxd
     - kapacitord
-    - osqueryd
   tags:
     - configuration
     - monitoring
