@@ -51,6 +51,7 @@
       - htop
       - iverilog
       - gnupg
+      - ccache
     state: present
   tags:
     - packages
@@ -60,7 +61,6 @@
 - name: Remove packages I don't want
   pkgng:
     name:
-      - ccache
       - perl5.24
     autoremove: yes
     state: absent
