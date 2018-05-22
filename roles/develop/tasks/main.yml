@@ -127,7 +127,7 @@
     - freebsdbuild
 
 - name: set up /usr/local/etc/ccache.conf
-  template:
+  copy:
     src: ccache.conf
     dest: /usr/local/etc/ccache.conf
     owner: root
