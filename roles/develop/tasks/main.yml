@@ -15,6 +15,7 @@
       - cvs
       - hs-ShellCheck
       - gcc7
+      - gcc9-devel
       - mercurial
       - qemu
       - pkg-provides
