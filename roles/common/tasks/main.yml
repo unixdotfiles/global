@@ -1,6 +1,8 @@
 - debug:
     var: vars
     verbosity: 3
+  tags:
+    - debug
 
 - name: Ensure respository directory exists
   file:

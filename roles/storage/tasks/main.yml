@@ -1,70 +1,87 @@
 ---
-- zfs_facts:
-    name: zroot/usr/obj
-  register: zrootusrobj_exists
+- name: find information about zfs
+  zfs_facts:
+    name: "{{ item }}"
+  loop:
+      - zroot/srv/cores
+      - zroot/srv/cores@empty
+        #      - zroot/srv/obj
+        #      - zroot/srv/obj@empty
+        #      - zroot/srv/src
+        #      - zroot/srv/src@empty
+        #      - zroot/usr/src
+        #      - zroot/usr/src@empty
+  register: zfs_data
   ignore_errors: True
+  tags:
+      - zfs
+      - storage
+      - once
 
-- zfs:
-    name: zroot/usr/obj
-    state: present
-    atime: off
-    canmount: on
-    checksum: on
-    compress: on
-    exec: on
-    mountpoint: /srv/obj
-    readonly: off
-    redundant_metadata: most
-    logbias: latency
-    sync: disabled
-  when: zrootusrobj_exists|failed
+- debug:
+    msg: "{{ zfs_data }}"
+  tags:
+    - once
 
-- zfs_facts:
-    name: zroot/usr/obj@empty
-  register: zrootusrobj_empty_exists
-  ignore_errors: True
-
-- zfs:
-    name: zroot/usr/obj@empty
-    state: present
-  when: zrootusrobj_empty_exists|failed
-
-- zfs_facts:
-    name: zroot/srv/cores
-  register: zrootsrvcores_exists
-  ignore_errors: True
-
-- zfs:
-    name: zroot/srv/cores
-    state: present
-    atime: off
-    canmount: on
-    checksum: on
-    compress: on
-    exec: on
-    mountpoint: /srv/cores
-    readonly: off
-    redundant_metadata: most
-    logbias: throughput
-  when: zrootsrvcores_exists
-
-- zfs_facts:
-    name: zroot/usr/src
-  register: zrootusrsrc_exists
-  ignore_errors: True
-
-- zfs:
-    name: zroot/usr/src
-    state: present
-    atime: off
-    canmount: on
-    checksum: on
-    compress: on
-    exec: on
-    mountpoint: /srv/src
-    readonly: off
-    redundant_metadata: all
-    logbias: latency
-    sync: disabled
-    utf8only: on
-  when: zrootusrsrc_exists|failed
+        #- name: create empty snapshots
+        #  debug:
+        #    msg: "{{ item }}"
+        #    verbosity: 0
+        #  state: present
+        #  #when: "item.msg.failed and item.msg.invocation.module_args.name|regex_search('@')"
+        #  loop:
+        #    - "{{ zfs_data }}"
+        #  tags:
+        #    - once
+        #
+        #
+        #
+        #        #- zfs:
+        #        #    name: zroot/usr/obj
+        #        #    state: present
+        #        #    atime: off
+        #        #    canmount: on
+        #        #    checksum: on
+        #        #    compress: on
+        #        #    exec: on
+        #        #    mountpoint: /srv/obj
+        #        #    readonly: off
+        #        #    redundant_metadata: most
+        #        #    logbias: latency
+        #        #    sync: disabled
+        #        #  when: zrootusrobj_exists|failed
+        #        #  #- zfs:
+        #  #    name: zroot/usr/obj@empty
+        #  #    state: present
+        #  #  when: zrootusrobj_empty_exists|failed
+        #  #
+        #
+        #  #- zfs:
+        #  #    name: zroot/srv/cores
+        #  #    state: present
+        #  #    atime: off
+        #  #    canmount: on
+        #  #    checksum: on
+        #  #    compress: on
+        #  #    exec: on
+        #  #    mountpoint: /srv/cores
+        #  #    readonly: off
+        #  #    redundant_metadata: most
+        #  #    logbias: throughput
+        #  #  when: zrootsrvcores_exists
+        #  #
+        #  #- zfs:
+        #  #    name: zroot/usr/src
+        #  #    state: present
+        #  #    atime: off
+        #  #    canmount: on
+        #  #    checksum: on
+        #  #    compress: on
+        #  #    exec: on
+        #  #    mountpoint: /srv/src
+        #  #    readonly: off
+        #  #    redundant_metadata: all
+        #  #    logbias: latency
+        #  #    sync: disabled
+        #  #    utf8only: on
+        #  #  when: zrootusrsrc_exists|failed
