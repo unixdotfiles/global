@@ -15,7 +15,7 @@
     mountpoint: /srv/obj
     readonly: off
     redundant_metadata: most
-    logbias: throughput
+    logbias: latency
     sync: disabled
   when: zrootusrobj_exists|failed
 
@@ -28,6 +28,25 @@
     name: zroot/usr/obj@empty
     state: present
   when: zrootusrobj_empty_exists|failed
+
+- zfs_facts:
+    name: zroot/srv/cores
+  register: zrootsrvcores_exists
+  ignore_errors: True
+
+- zfs:
+    name: zroot/srv/cores
+    state: present
+    atime: off
+    canmount: on
+    checksum: on
+    compress: on
+    exec: on
+    mountpoint: /srv/cores
+    readonly: off
+    redundant_metadata: most
+    logbias: throughput
+  when: zrootsrvcores_exists
 
 - zfs_facts:
     name: zroot/usr/src
