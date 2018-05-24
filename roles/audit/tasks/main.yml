@@ -1,6 +1,6 @@
 ---
 - name: Ensure logs rotate
-  template:
+  copy:
     src: audit_warn
     dest: /etc/security/audit_warn
     owner: root
@@ -12,7 +12,7 @@
     - audit
 
 - name: Set up audit configuration
-  template:
+  copy:
     src: audit_control
     dest: /etc/security/audit_control
     owner: root
@@ -24,7 +24,7 @@
     - audit
 
 - name: Set up audit users conig
-  template:
+  copy:
     src: audit_user
     dest: /etc/security/audit_user
     owner: root
