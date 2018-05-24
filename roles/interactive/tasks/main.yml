@@ -13,7 +13,7 @@
     - packages
 
 - name: Permit 'zapping' X
-  template:
+  copy:
     src: xorg.conf.d/zap.conf
     dest: /usr/local/etc/X11/xorg.conf.d/zap.conf
     owner: root
