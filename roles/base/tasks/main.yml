@@ -40,6 +40,14 @@
   tags:
     - configuration
 
+- name: set kern.corefile for debugging
+  sysctl:
+    name: kern.corefile
+    value: "%N.%P.%U.%H.%I.core"
+    state: present
+  tags:
+    - configuration
+
 - name: disable witness
   sysctl:
     name: debug.witness.watch
