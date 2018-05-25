@@ -1,5 +1,18 @@
 ---
 
+- name: configure auto-snapshots globally
+  zfs:
+    name: zroot
+    state: present
+    extra_zfs_properties:
+      com.sun:auto-snapshot: true
+  loop:
+    - zroot/srv/src
+    - zroot/usr/src
+  tags:
+    - configuration
+    - zfs
+
 - name: create src dirs
   zfs:
     name: "{{ item }}"
