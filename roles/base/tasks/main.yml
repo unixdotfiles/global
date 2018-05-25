@@ -43,7 +43,7 @@
 - name: set kern.corefile for debugging
   sysctl:
     name: kern.corefile
-    value: "/srv/cores/%U/%N.%P.%H.%I.core"
+    value: "/srv/cores/%N.%P.%U.%H.%I.core"
     state: present
   tags:
     - configuration
