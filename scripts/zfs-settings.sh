@@ -21,14 +21,18 @@ done
 zfs \
   redundant_metadata=most \
   logbias=latency \
+  atime=off \
   zroot/srv/src
 
 zfs \
   redundant_metadata=most \
   logbias=throughput \
+  atime=off \
   zroot/srv/obj
 
 zfs \
-  redundant_metadata=most \
+  redundant_metadata=all \
   logbias=throughput \
+  sync=disabled \
+  atime=off \
   zroot/usr/src
