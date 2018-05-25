@@ -51,3 +51,15 @@
   tags:
     - storage
     - zfs
+
+- name: add cron for zfs snapshotting
+  copy:
+    src: zfs_auto_snapshot.crontab
+    dest: /etc/cron.d/zfs_auto_snapshot
+    mode: '0644'
+    owner: root
+    group: wheel
+    backup: no
+  tags:
+    - configuration
+    - zfs
