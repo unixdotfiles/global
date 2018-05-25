@@ -16,13 +16,20 @@
     - zfs
 
 - zfs:
-    name: zroot/srv/obj
+    name: "{{ item }}"
     state: present
     extra_zfs_properties:
       atime: off
       exec: on
       redundant_metadata: most
-      sync: off
+      sync: disabled
+  loop:
+    - zroot/srv/obj
+    - zroot/srv/obj/ccache
+  tags:
+    - storage
+    - zfs
+
 - zfs:
     name: zroot/srv/cores
     state: present
