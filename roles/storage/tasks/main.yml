@@ -40,3 +40,14 @@
   tags:
     - storage
     - zfs
+
+- zfs:
+    name: zroot/srv/cores
+    state: present
+    extra_zfs_properties:
+      atime: off
+      exec: on
+      redundant_metadata: all
+  tags:
+    - storage
+    - zfs
