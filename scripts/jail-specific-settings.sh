@@ -15,9 +15,5 @@ zfs set \
   zroot/iocage/jails/bastion
 
 zfs set \
-  quota=1G \
-  zroot/iocage/jails/znc
-
-zfs set \
   quota=2G \
   zroot/iocage/jails/vpn

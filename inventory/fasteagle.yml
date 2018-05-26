@@ -13,8 +13,6 @@ all:
           ansible_host: ioc-bastion
         vpn:
           ansible_host: ioc-vpn
-        znc:
-          ansible_host: ioc-znc
       vars:
         ansible_connection: jail
   vars:

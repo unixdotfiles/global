@@ -1,6 +1,6 @@
 ---
 - name: ensure jail has networking
-  hosts: bastion znc vpn
+  hosts: bastion vpn
   gather_facts: False
 
   pre_tasks:
@@ -63,9 +63,3 @@
   hosts: vpn
   roles:
     - vpn
-
-- name:
-  hosts: znc
-  roles:
-    - znc
-
