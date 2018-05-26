@@ -8,6 +8,8 @@
       raw: /sbin/dhclient vnet0
       changed_when: False
 
+  ignore_errors: true
+
 - name: add python if not installed
   hosts: all
   gather_facts: False

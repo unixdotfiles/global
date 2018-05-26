@@ -29,7 +29,6 @@
       - bash
       - cowsay
       - git-subversion
-      - rubygem-ohai
       - jq
       - tmux
       - vim
