@@ -83,7 +83,7 @@
 - name: Install packages useful for base
   pkgng:
     name:
-      - ansible
+      - py36-ansible
       - zfs-stats
       - devcpu-data
       - xmbmon
