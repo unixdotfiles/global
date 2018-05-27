@@ -54,6 +54,7 @@
       - gnupg
       - ccache
       - autotools
+      - wget
     state: present
   tags:
     - packages
