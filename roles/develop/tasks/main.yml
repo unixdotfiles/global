@@ -53,6 +53,7 @@
       - iverilog
       - gnupg
       - ccache
+      - autotools
     state: present
   tags:
     - packages
