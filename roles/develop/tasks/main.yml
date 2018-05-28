@@ -124,7 +124,7 @@
     - freebsdbuild
 
 - name: set up /etc/make.conf
-  template:
+  copy:
     src: make.conf
     dest: /etc/make.conf
     owner: root
