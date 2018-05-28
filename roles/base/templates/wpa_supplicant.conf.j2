@@ -1,8 +1,11 @@
 ctrl_interface=/var/run/wpa_supplicant
 ctrl_interface_group=wheel
+eapol_version=2
+
 network={
 	ssid="{{wifi_network_name}}"
 	scan_ssid=1
 	key_mgmt=WPA-PSK
-	psk="{{wifi_network_pass}}"
+	psk="{{wifi_network_pass}}"A
+	proto="RSN"
 }
