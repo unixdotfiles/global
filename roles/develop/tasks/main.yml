@@ -113,7 +113,7 @@
     - sourcecode
 
 - name: Build FreeBSD with special options
-  template:
+  copy:
     src: src.conf
     dest: /etc/src.conf
     owner: root
@@ -135,7 +135,7 @@
     - freebsdbuild
 
 - name: set up /etc/src-env.conf
-  template:
+  copy:
     src: src-env.conf
     dest: /etc/src-env.conf
     owner: root
@@ -157,7 +157,7 @@
     - configuration
 
 - name: Set up pkgng configuration
-  template:
+  copy:
     src: pkg.conf
     dest: /usr/local/etc/pkg.conf
     owner: root

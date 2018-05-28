@@ -9,7 +9,7 @@
     - poudriere
 
 - name: set up poudriere.conf
-  template:
+  copy:
     src: poudriere.conf
     dest: /usr/local/etc/poudriere.conf
     owner: root

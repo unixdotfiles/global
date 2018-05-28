@@ -244,7 +244,7 @@
 #    - configuration
 
 - name: Set up local poudriere path
-  template:
+  copy:
     src: poudriere.conf
     dest: /usr/local/etc/pkg/repos/poudriere.conf
     owner: root

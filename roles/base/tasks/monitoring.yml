@@ -55,7 +55,7 @@
     - restart telegrafd
 
 - name: install influxd conf
-  template:
+  copy:
     src: influxd.conf
     dest: /usr/local/etc/influxd.conf
     owner: root
