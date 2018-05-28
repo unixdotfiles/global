@@ -6,6 +6,7 @@
       - gcc7
       - gcc9-devel
       - openjdk8
+      - perl5
       - php72
       - R
       - scala
@@ -81,6 +82,7 @@
   pkgng:
     name:
       - perl5.24
+      - perl5.26
     autoremove: yes
     state: absent
   tags:
