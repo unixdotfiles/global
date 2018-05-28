@@ -8,7 +8,7 @@
     - nginx
 
 - name: set up nginx root config
-  template:
+  copy:
     src: nginx.conf
     dest: /usr/local/etc/nginx/nginx.conf
     owner: root
@@ -41,7 +41,7 @@
     - nginx
 
 - name: set up nginx root config
-  template:
+  copy:
     src: devbox.conf
     dest: /usr/local/etc/nginx/sites-enabled/devbox.conf
     owner: root
