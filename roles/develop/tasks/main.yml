@@ -1,21 +1,35 @@
+- name: Install programming languages and compilers
+  pkgng:
+    name:
+      - ruby25
+      - ghc
+      - gcc7
+      - gcc9-devel
+      - openjdk8
+      - php72
+      - R
+      - scala
+      - swi-pl
+      - go
+      - iverilog
+  tags:
+    - packages
+    - python
+
 - name: Install development packages
   pkgng:
     name:
       - ripgrep
       - the_silver_searcher
-      - ghc
       - docproj
       - ninja
       - cpuid
       - distilator
       - portlint
-      - ruby25
       - valgrind
       - subversion
       - cvs
       - hs-ShellCheck
-      - gcc7
-      - gcc9-devel
       - mercurial
       - qemu
       - pkg-provides
@@ -26,8 +40,6 @@
       - hub
       - cmake
       - rsync
-      - openjdk8
-      - php72
       - php72-curl
       - php72-json
       - php72-simplexml
@@ -36,26 +48,30 @@
       - pciutils
       - py36-asciinema
       - gdb
-      - scala
       - sbt
       - py36-virtualenv
-      - swi-pl
-      - yarn
-      - go
       - gmake
-      - npm
       - groff
-      - py36-pip
-      - R
-      - lua52-luarocks
       - texinfo # for makeinfo for gdb compilation
       - htop
-      - iverilog
       - gnupg
       - ccache
       - autotools
       - wget
     state: present
+  tags:
+    - packages
+    - qemu
+    - python
+
+- name: Install package maagers
+  pkgng:
+    name:
+      - ruby25-gems
+      - lua53-luarocks
+      - yarn
+      - py36-pip
+      - npm
   tags:
     - packages
     - qemu
