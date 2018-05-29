@@ -1,0 +1,28 @@
+---
+allow_make_jobs_packages:
+  - pkg*
+  - llvm*
+  - openjdk*
+  - ccache
+  - "*gcc*"
+  - clang*
+  - perl5*
+  - cmake
+  - binutils
+  - python*
+  - R
+  - ghc*
+  - gtk*
+  - boost-libs
+  - ibreoffice*
+  - webkit*
+  - firefox*
+  - chrom*
+  - qt5-buildtools*
+  - spidermonkey*
+  - qt5-core
+  - sqlite*
+  - icu
+  - atlas*
+  - "*blas*"
+  - hs-regex-tdfa

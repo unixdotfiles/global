@@ -9,8 +9,8 @@
     - poudriere
 
 - name: set up poudriere.conf
-  copy:
-    src: poudriere.conf
+  template:
+    src: poudriere.conf.j2
     dest: /usr/local/etc/poudriere.conf
     owner: root
     group: wheel
