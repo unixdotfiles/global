@@ -1,29 +1,29 @@
 ---
 allow_make_jobs_packages:
-  - pkg*
+  - atlas*
+  - binutils
+  - "*blas*"
+  - boost-libs
+  - ccache
+  - chrom*
+  - clang*
+  - cmake
+  - firefox*
+  - "*gcc*"
+  - ghc*
+  - go*
+  - gtk*
+  - hs-regex-tdfa
+  - ibreoffice*
+  - icu
   - llvm*
   - openjdk*
-  - ccache
-  - "*gcc*"
-  - clang*
   - perl5*
-  - cmake
-  - binutils
+  - pkg*
   - python*
-  - R
-  - ghc*
-  - gtk*
-  - go*
-  - boost-libs
-  - ibreoffice*
-  - webkit*
-  - firefox*
-  - chrom*
   - qt5-buildtools*
-  - spidermonkey*
   - qt5-core
+  - R
+  - spidermonkey*
   - sqlite*
-  - icu
-  - atlas*
-  - "*blas*"
-  - hs-regex-tdfa
+  - webkit*
