@@ -17,6 +17,7 @@ allow_make_jobs_packages:
   - ibreoffice*
   - icu
   - m4
+  - node
   - llvm*
   - openjdk*
   - perl5*
