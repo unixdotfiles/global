@@ -13,6 +13,7 @@ allow_make_jobs_packages:
   - R
   - ghc*
   - gtk*
+  - go*
   - boost-libs
   - ibreoffice*
   - webkit*
