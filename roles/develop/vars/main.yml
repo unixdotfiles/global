@@ -26,6 +26,7 @@ allow_make_jobs_packages:
   - qt5-buildtools*
   - qt5-core
   - R
+  - rust
   - spidermonkey*
   - sqlite*
   - webkit*
