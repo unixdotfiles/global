@@ -16,6 +16,7 @@ allow_make_jobs_packages:
   - hs-regex-tdfa
   - ibreoffice*
   - icu
+  - m4
   - llvm*
   - openjdk*
   - perl5*
