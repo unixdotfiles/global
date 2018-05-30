@@ -1,7 +1,7 @@
 - name: Install packages required for poudriere
   pkgng:
     name:
-      - poudriere
+      - poudriere-devel
       - ports-mgmt/dialog4ports
     state: present
   tags:
