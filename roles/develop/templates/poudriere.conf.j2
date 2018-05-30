@@ -276,7 +276,7 @@ CCACHE_DIR_NON_ROOT_SAFE=yes
 
 # Define pkgname globs to boost priority for
 # Default: none
-PRIORITY_BOOST="gmake"
+PRIORITY_BOOST="{{ priority_boost | join(' ') }}"
 
 # Define format for buildnames
 # Default: %Y-%m-%d_%Hh%Mm%Ss

@@ -30,3 +30,6 @@ allow_make_jobs_packages:
   - spidermonkey*
   - sqlite*
   - webkit*
+priority_boost:
+  - gmake
+  - perl5*
