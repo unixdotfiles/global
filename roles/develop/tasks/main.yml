@@ -5,7 +5,6 @@
       - ghc
       - gcc7
       - gcc9-devel
-      - openjdk8
       - perl5
       - php72
       - R

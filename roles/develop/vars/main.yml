@@ -33,3 +33,4 @@ allow_make_jobs_packages:
 priority_boost:
   - gmake
   - perl5*
+  - ghc
