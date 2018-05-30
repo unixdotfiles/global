@@ -109,7 +109,7 @@
     path: /srv/rosrc
     src: /srv/src
     fstype: nullfs
-    opts: ro,late,noauto
+    opts: ro,late
     state: mounted
   tags:
     - sourcecode
