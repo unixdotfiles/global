@@ -55,6 +55,7 @@
       - texinfo # for makeinfo for gdb compilation
       - htop
       - gnupg
+      - bind912
       - ccache
       - autotools
       - wget
