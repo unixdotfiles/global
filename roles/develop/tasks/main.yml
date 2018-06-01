@@ -59,6 +59,7 @@
       - ccache
       - autotools
       - wget
+      - kyua
     state: present
   tags:
     - packages
