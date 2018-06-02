@@ -60,6 +60,7 @@
       - autotools
       - wget
       - kyua
+      - gnome-keyring
     state: present
   tags:
     - packages
