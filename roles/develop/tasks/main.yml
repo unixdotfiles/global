@@ -150,11 +150,11 @@
     - freebsdbuild
 
 - name: set up /usr/local/etc/ccache.conf
-  copy:
-    src: ccache.conf
+  template:
+    src: ccache.conf.j2
     dest: /usr/local/etc/ccache.conf
-    owner: root
-    group: wheel
+    owner: nobody
+    group: nobody
     mode: '0644'
     backup: yes
   tags:

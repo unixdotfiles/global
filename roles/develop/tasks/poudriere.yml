@@ -38,6 +38,19 @@
   tags:
     - poudriere
 
+- name: set up poudriere ccache config
+  template:
+    src: ccache.conf.j2
+    dest: /srv/obj/ccache-poudriere/ccache.conf
+    owner: root
+    group: wheel
+    mode: '0644'
+    backup: yes
+  tags:
+    - configuration
+    - poudriere
+
+
 - name: ensure that distfile directory exists for poudriere
   file:
     path: /srv/obj/distfiles
