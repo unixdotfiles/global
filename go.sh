@@ -2,9 +2,9 @@
 git pull --rebase || true
 sudo ansible-galaxy install -r requirements.yml
 
-if [ -e ~/.ansible.vault.password ]
+if [ -e /root/.ansible.vault.password ]
 then
-  sudo ansible-playbook --diff -i inventory/$(hostname).yml site.yml --vault-password-file=~/.ansible.vault.password -v "$@"
+  sudo ansible-playbook --diff -i inventory/$(hostname).yml site.yml --vault-password-file=/root/.ansible.vault.password -v "$@"
 else
   echo skipping vault
   sudo ansible-playbook --diff -i inventory/$(hostname).yml site.yml -v "$@"
