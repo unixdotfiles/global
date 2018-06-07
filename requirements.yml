@@ -1,1 +1,2 @@
-- src: willshersystems.sshd 
+- src: willshersystems.sshd
+  version: v0.6.1
