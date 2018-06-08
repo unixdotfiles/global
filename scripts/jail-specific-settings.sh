@@ -35,6 +35,10 @@ zfs set \
   zroot/srv/cores
 
 zfs set \
+  quota=300G \
+  zroot/srv/obj
+
+zfs set \
   quota=200G \
   zroot/srv/obj/ccache
 
