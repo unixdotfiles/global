@@ -40,4 +40,8 @@ zfs set \
 
 zfs set \
   quota=200G \
+  zroot/srv/obj/ccache-poudriere
+
+zfs set \
+  quota=200G \
   zroot/srv/obj
