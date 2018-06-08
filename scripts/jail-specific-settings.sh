@@ -17,3 +17,27 @@ zfs set \
 zfs set \
   quota=2G \
   zroot/iocage/jails/vpn
+
+# Set sanity check quotas. If the usage are higher
+# than this, we have a run-away process
+
+# This should be much lower
+zfs set \
+  quota=400G \
+  zroot/ROOT
+
+zfs set \
+  quota=300G \
+  zroot/srv
+
+zfs set \
+  quota=200G \
+  zroot/srv/cores
+
+zfs set \
+  quota=200G \
+  zroot/srv/obj/ccache
+
+zfs set \
+  quota=200G \
+  zroot/srv/obj
