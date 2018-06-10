@@ -13,7 +13,7 @@
     - configuration
 
 - name: Set up repository path
-  copy:
+  template:
     src: FreeBSD.conf
     dest: /usr/local/etc/pkg/repos/FreeBSD.conf
     owner: root

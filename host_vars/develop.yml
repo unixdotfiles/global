@@ -9,3 +9,4 @@ sshd:
   PermitRootLogin: no
   Port: 22
   UseDNS: no
+pkg_use_official_repo: no
