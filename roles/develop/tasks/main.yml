@@ -61,6 +61,7 @@
       - wget
       - kyua
       - gnome-keyring
+      - cloc
     state: present
   tags:
     - packages
