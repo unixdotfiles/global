@@ -62,6 +62,7 @@
       - kyua
       - gnome-keyring
       - cloc
+      - diffstat
     state: present
   tags:
     - packages
