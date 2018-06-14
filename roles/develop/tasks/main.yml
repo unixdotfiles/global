@@ -60,7 +60,6 @@
       - autotools
       - wget
       - kyua
-      - gnome-keyring
       - cloc
       - diffstat
     state: present
