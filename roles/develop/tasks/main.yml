@@ -1,7 +1,7 @@
 - name: Install programming languages and compilers
   pkgng:
     name:
-      - ruby25
+      - ruby
       - ghc
       - gcc7
       - gcc9-devel
