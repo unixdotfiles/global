@@ -55,7 +55,7 @@
   roles:
     - human
     - eaxhome
-    - develop
+    - desktop
     - interactive
     - power
 

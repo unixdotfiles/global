@@ -1,0 +1,7 @@
+- name: Install desktop environment
+  pkgng:
+    name:
+      - gnome3
+  ignore_error: True
+  tags:
+    - packages
