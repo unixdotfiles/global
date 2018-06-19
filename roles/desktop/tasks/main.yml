@@ -2,6 +2,6 @@
   pkgng:
     name:
       - gnome3
-  ignore_error: True
+  ignore_errors: True
   tags:
     - packages

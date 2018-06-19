@@ -12,7 +12,7 @@
       - swi-pl
       - go
       - iverilog
-  ignore_error: True
+  ignore_errors: True
   tags:
     - packages
     - python
@@ -64,14 +64,14 @@
       - cloc
       - diffstat
     state: present
-  ignore_error: True
+  ignore_errors: True
   tags:
     - packages
     - qemu
     - python
 
 - name: Install package managers
-  ignore_error: True
+  ignore_errors: True
   pkgng:
     name:
       - ruby25-gems
