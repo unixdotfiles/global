@@ -14,10 +14,6 @@ zfs set \
   quota=1G \
   zroot/iocage/jails/bastion
 
-zfs set \
-  quota=2G \
-  zroot/iocage/jails/vpn
-
 # Set sanity check quotas. If the usage are higher
 # than this, we have a run-away process
 

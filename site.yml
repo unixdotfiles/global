@@ -1,6 +1,6 @@
 ---
 - name: ensure jail has networking
-  hosts: bastion vpn
+  hosts: bastion
   gather_facts: False
 
   pre_tasks:
@@ -58,8 +58,3 @@
     - desktop
     - interactive
     - power
-
-- name:
-  hosts: vpn
-  roles:
-    - vpn
