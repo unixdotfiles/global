@@ -78,6 +78,7 @@
       - lua53-luarocks
       - yarn
       - py36-pip
+      - stack
       - npm
   tags:
     - packages
