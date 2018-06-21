@@ -5,15 +5,16 @@
     value: 1
     state: present
   loop:
-      - kern.randompid
-      - kern.msgbuf_show_timestamp
-      - security.bsd.stack_guard_page
       - debug.kdb.break_to_debugger
       - kern.capmode_coredump
-      - net.inet6.ip6.accept_rtadv
-      - kern.sugid_coredump
-      - kern.lognosys
       - kern.dtrace.err_verbose
+      - kern.lognosys
+      - kern.msgbuf_show_timestamp
+      - kern.randompid
+      - kern.sugid_coredump
+      - net.inet6.ip6.accept_rtadv
+      - security.bsd.stack_guard_page
+      - vfs.default_autoro
   tags:
     - configuration
 
