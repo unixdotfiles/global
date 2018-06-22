@@ -2,10 +2,11 @@
 
 - name: configure auto-snapshots globally
   zfs:
-    name: zroot
+    name: "{{ item }}"
     state: present
     extra_zfs_properties:
       com.sun:auto-snapshot: true
+      quota: 200G
   loop:
     - zroot/srv/src
     - zroot/usr/src
@@ -21,6 +22,7 @@
       atime: off
       exec: on
       redundant_metadata: all
+      quota: 200G
   loop:
     - zroot/srv/src
     - zroot/usr/src
@@ -36,6 +38,7 @@
       exec: on
       redundant_metadata: most
       sync: disabled
+      quota: 200G
   loop:
     - zroot/srv/obj
     - zroot/srv/obj/ccache
@@ -44,12 +47,13 @@
     - zfs
 
 - zfs:
-    name: zroot/srv/cores
+    name: zroot/srv/download
     state: present
     extra_zfs_properties:
       atime: off
       exec: on
-      redundant_metadata: all
+      redundant_metadata: most
+      quota: 300G
   tags:
     - storage
     - zfs
@@ -61,6 +65,7 @@
       atime: off
       exec: on
       redundant_metadata: all
+      quota: 150G
   tags:
     - storage
     - zfs
