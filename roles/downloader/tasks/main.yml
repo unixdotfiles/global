@@ -1,0 +1,19 @@
+---
+
+- name: Install transmission packages
+  pkgng:
+    name:
+      - transmission-cli
+      - transmission-daemon
+    state: present
+  tags:
+    - packages
+    - transmission
+
+- name: start transmission
+  service:
+    name: transmission
+    state: started
+    enabled: yes
+  tags:
+    - transmission

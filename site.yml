@@ -41,6 +41,7 @@
     - power
     - audit
     - develop
+    - downloader
 
 - name: create ssh bastion
   hosts: bastion
