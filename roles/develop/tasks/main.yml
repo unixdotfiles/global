@@ -63,8 +63,6 @@
       - kyua
       - cloc
       - diffstat
-      - transmission-cli
-      - transmission-daemon
     state: present
   ignore_errors: True
   tags:
