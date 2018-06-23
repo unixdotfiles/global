@@ -81,6 +81,10 @@
     - { name: zroot/srv, quota: 300G }
     - { name: zroot/iocage/jails, quota: 700G }
     - { name: zroot/iocage/jails/bastion, quota: 1G }
+    - { name: zroot/tmp, quota: 300G }
+    - { name: zroot/usr/ports, quota: 10M } # avoid using it
+    - { name: zroot/var/mail, quota: 1G }
+    - { name: zroot/var/tmp, quota: 300G }
   tags:
     - zfs
 
