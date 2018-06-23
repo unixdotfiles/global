@@ -70,6 +70,20 @@
     - storage
     - zfs
 
+- name: set quota for some datasets
+  zfs:
+    name: "{{ item.name }}"
+    state: present
+    extra_zfs_properties:
+      quota: "{{ item.quota }}"
+  loop:
+    - { name: zroot/ROOT, quota: 400G }
+    - { name: zroot/srv, quota: 300G }
+    - { name: zroot/iocage/jails, quota: 700G }
+    - { name: zroot/iocage/jails/bastion, quota: 1G }
+  tags:
+    - zfs
+
 - name: add cron for zfs snapshotting
   copy:
     src: zfs_auto_snapshot.crontab
