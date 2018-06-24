@@ -30,7 +30,7 @@
   tags:
     - configuration
     - transmission
-  with_items:
+  loop:
     - /usr/local/etc/transmission/home/settings.json
     - /usr/local/etc/transmission/home/.config/transmission-daemon/settings.json
 

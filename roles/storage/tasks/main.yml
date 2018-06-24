@@ -47,16 +47,36 @@
     - zfs
 
 - zfs:
-    name: zroot/srv/download
+    name: "{{ item }}"
     state: present
     extra_zfs_properties:
       atime: off
       exec: on
       redundant_metadata: most
       quota: 300G
+  loop:
+    - zroot/srv/download
+    - zroot/srv/download/transmission
   tags:
     - storage
     - zfs
+
+- file:
+    name: /srv/download
+    owner: eax
+    group: eax
+  tags:
+    - storage
+    - zfs
+
+- file:
+    name: /srv/download/transmission
+    owner: transmission
+    group: transmission
+  tags:
+    - storage
+    - zfs
+    - transmission
 
 - zfs:
     name: zroot/srv/cores
