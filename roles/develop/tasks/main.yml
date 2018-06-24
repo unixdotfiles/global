@@ -3,6 +3,11 @@
     name:
       - ruby
       - ghc
+      - gcc47
+      - gcc48
+      - gcc49
+      - gcc5
+      - gcc6
       - gcc7
       - gcc9-devel
       - perl5
