@@ -90,6 +90,15 @@
     - storage
     - zfs
 
+- file:
+    name: /srv/cores
+    owner: root
+    group: wheel
+    mode: 01777
+  tags:
+    - storage
+    - zfs
+
 - name: set quota for some datasets
   zfs:
     name: "{{ item.name }}"

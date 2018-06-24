@@ -112,7 +112,6 @@
     - /srv/src
     - /srv/rosrc
     - /srv/obj
-    - /srv/cores
   tags:
     - sourcecode
 
