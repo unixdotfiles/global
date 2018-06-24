@@ -20,7 +20,7 @@
 
 - name: Copy settings into place
   copy:
-    dest: "{{ item }}"
+    dest: /usr/local/etc/transmission/home/.config/transmission-daemon/settings.json
     src: settings.json
     owner: transmission
     group: transmission
@@ -30,7 +30,3 @@
   tags:
     - configuration
     - transmission
-  loop:
-    - /usr/local/etc/transmission/home/settings.json
-    - /usr/local/etc/transmission/home/.config/transmission-daemon/settings.json
-
