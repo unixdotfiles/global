@@ -42,6 +42,7 @@
     - audit
     - develop
     - downloader
+    - toolspage
 
 - name: create ssh bastion
   hosts: bastion

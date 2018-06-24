@@ -1,0 +1,11 @@
+---
+
+- name: Create index page
+  template:
+    dest: /srv/www/devbox/index.html
+    src: index.html.j2
+  vars:
+    host_main_ip: 192.168.200.4
+  tags:
+    - www
+    - tools
