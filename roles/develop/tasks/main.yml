@@ -1,4 +1,4 @@
-- name: Install programming languages and compilers
+- name: Install programming languages, compilers, and toolchains
   pkgng:
     name:
       - ruby
@@ -17,6 +17,11 @@
       - swi-pl
       - go
       - iverilog
+      - amd64-xtoolchain-gcc
+      - powerpc64-xtoolchain-gcc
+      - mips64-xtoolchain-gcc
+      - mips64-xtoolchain-gcc
+      - aarch64-xtoolchain-gcc
   ignore_errors: True
   tags:
     - packages
