@@ -17,3 +17,20 @@
     enabled: yes
   tags:
     - transmission
+
+- name: Copy settings into place
+  copy:
+    dest: "{{ item }}"
+    src: settings.json
+    owner: transmission
+    group: transmission
+    mode: '0600'
+  notify:
+    - restart transmission
+  tags:
+    - configuration
+    - transmission
+  with_items:
+    - /usr/local/etc/transmission/home/settings.json
+    - /usr/local/etc/transmission/home/.config/transmission-daemon/settings.json
+

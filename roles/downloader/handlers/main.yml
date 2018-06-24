@@ -1,0 +1,5 @@
+---
+- name: restart transmission
+  service:
+    name: transmission
+    state: restarted
