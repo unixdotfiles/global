@@ -46,10 +46,11 @@
     group: wheel
     mode: '0644'
     backup: yes
+  vars:
+    sloppiness: file_macro,time_macros
   tags:
     - configuration
     - poudriere
-
 
 - name: ensure that distfile directory exists for poudriere
   file:
