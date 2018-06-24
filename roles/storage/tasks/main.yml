@@ -53,7 +53,7 @@
       atime: off
       exec: on
       redundant_metadata: most
-      quota: 300G
+      quota: 400G
   loop:
     - zroot/srv/download
     - zroot/srv/download/transmission
@@ -107,7 +107,6 @@
       quota: "{{ item.quota }}"
   loop:
     - { name: zroot/ROOT, quota: 400G }
-    - { name: zroot/srv, quota: 300G }
     - { name: zroot/iocage/jails, quota: 700G }
     - { name: zroot/iocage/jails/bastion, quota: 1G }
     - { name: zroot/tmp, quota: 300G }
