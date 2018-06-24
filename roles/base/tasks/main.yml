@@ -64,6 +64,8 @@
     src: proc
     opts: rw,late
     state: mounted
+  tags:
+    - fstab
 
 - name: ensure linsysfs is mounted
   mount:
@@ -72,6 +74,8 @@
     src: linsysfs
     opts: rw,late
     state: mounted
+  tags:
+    - fstab
 
 - name: ensure linproc is mounted
   mount:
@@ -80,6 +84,18 @@
     src: linproc
     opts: rw,late
     state: mounted
+  tags:
+    - fstab
+
+- name: mount linux shm
+  mount:
+    path: /compat/linux/dev/shm
+    fstype: tmpfs
+    src: tmpfs
+    opts: rw,mode=1777
+    state: mounted
+  tags:
+    - fstab
 
 - name: Install packages useful for base
   pkgng:
