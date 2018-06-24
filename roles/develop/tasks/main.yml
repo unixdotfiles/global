@@ -22,6 +22,7 @@
       - mips64-xtoolchain-gcc
       - mips64-xtoolchain-gcc
       - aarch64-xtoolchain-gcc
+      - linux-oracle-jdk10
   ignore_errors: True
   tags:
     - packages
