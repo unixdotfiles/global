@@ -18,6 +18,14 @@
   tags:
     - transmission
 
+- name: start nfsd
+  service:
+    name: nfsd
+    state: started
+    enabled: yes
+  tags:
+    - nfs
+
 - name: Copy settings into place
   copy:
     dest: /usr/local/etc/transmission/home/.config/transmission-daemon/settings.json
