@@ -2,7 +2,7 @@
   pkgng:
     name:
       - poudriere-devel
-      - ports-mgmt/dialog4ports
+      - dialog4ports
     state: present
   tags:
     - packages

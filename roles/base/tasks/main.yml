@@ -103,8 +103,6 @@
       - py36-ansible
       - zfs-stats
       - devcpu-data
-      - xmbmon
-      - bsdhwmon
       - beadm
       - drm-next-kmod
       - bsdstats
