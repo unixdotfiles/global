@@ -38,3 +38,13 @@
   tags:
     - configuration
     - transmission
+
+- name: add eax to transmission group, if eax exists
+  user:
+    name: eax
+    groups: transmission
+    append: yes
+  tags:
+    - configuration
+    - transmission
+    - human
