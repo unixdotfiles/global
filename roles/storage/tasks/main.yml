@@ -38,7 +38,7 @@
       exec: on
       redundant_metadata: most
       sync: disabled
-      quota: 200G
+      quota: 400G
   loop:
     - zroot/srv/obj
     - zroot/srv/obj/ccache
@@ -113,6 +113,7 @@
     - { name: zroot/usr/ports, quota: 10M } # avoid using it
     - { name: zroot/var/mail, quota: 1G }
     - { name: zroot/var/tmp, quota: 300G }
+    - { name: zroot/srv, quota: 800G }
   tags:
     - zfs
 
