@@ -69,14 +69,14 @@
 #    module_arguments: 'secret=/opt/bastion/totp/${USER}/config debug echo_verification_code'
 #    state: args_present
 
-- name: Remove password prompt
-  pamd:
-    name: sshd
-    type: auth
-    control: required
-    module_path: pam_unix.so
-    new_type: auth
-    state: absent
+#- name: Remove password prompt
+#  pamd:
+#    name: sshd
+#    type: auth
+#    control: required
+#    module_path: pam_unix.so
+#    new_type: auth
+#    state: absent
 
 - name: Install bastion packages
   pkgng:
