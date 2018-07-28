@@ -74,6 +74,7 @@
       - kyua
       - cloc
       - diffstat
+      - xorg-macros
     state: present
   ignore_errors: True
   tags:
