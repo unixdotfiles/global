@@ -13,6 +13,7 @@
       - perl5
       - php72
       - R
+      - rust
       - scala
       - swi-pl
       - go

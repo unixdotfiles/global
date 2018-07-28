@@ -54,6 +54,7 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	lang/go                                          \
 	lang/php72                                       \
 	lang/ruby25                                      \
+	lang/rust                                        \
 	lang/scala                                       \
 	security/sudo                                    \
 	lang/swi-pl                                      \
@@ -105,5 +106,4 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	x11/xclip                                        \
 	x11/xscreensaver                                 \
 	x11/xorg-minimal                                 \
-
 
