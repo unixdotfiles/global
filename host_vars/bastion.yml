@@ -4,7 +4,7 @@ sshd:
   ListenAddress:
     - "0.0.0.0"
     - "::"
-  AuthenticationMethods: publickey,keyboard-interactive
+  AuthenticationMethods: publickey
   PermitRootLogin: no
   Port: 2222
   UseDNS: no
