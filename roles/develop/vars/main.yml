@@ -9,8 +9,7 @@ allow_make_jobs_packages:
   - clang*
   - cmake
   - firefox*
-  - gcc9
-  - gcc7
+  - gcc*
   - ghc*
   - go*
   - gtk*
