@@ -3,7 +3,6 @@
     name:
       - ruby
       - ghc
-      - gcc47
       - gcc48
       - gcc49
       - gcc5

@@ -43,7 +43,6 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	graphics/graphviz                                \
 	java/linux-oracle-jdk10                          \
 	java/linux-oracle-jdk10                          \
-	lang/gcc47                                       \
 	lang/gcc48                                       \
 	lang/gcc49                                       \
 	lang/gcc5                                        \
