@@ -44,8 +44,6 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	java/linux-oracle-jdk10                          \
 	java/linux-oracle-jdk10                          \
 	lang/gcc48                                       \
-	lang/gcc49                                       \
-	lang/gcc5                                        \
 	lang/gcc6                                        \
 	lang/gcc7                                        \
 	lang/gcc9-devel                                  \
