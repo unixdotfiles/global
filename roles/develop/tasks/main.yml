@@ -55,13 +55,13 @@
       - php72-curl
       - php72-json
       - php72-simplexml
-      - py36-pycodestyle
-      - py36-autopep8
+      - py37-pycodestyle
+      - py37-autopep8
       - pciutils
-      - py36-asciinema
+      - py37-asciinema
       - gdb
       - sbt
-      - py36-virtualenv
+      - py37-virtualenv
       - gmake
       - groff
       - texinfo # for makeinfo for gdb compilation
@@ -89,7 +89,7 @@
       - ruby25-gems
       - lua53-luarocks
       - yarn
-      - py36-pip
+      - py37-pip
       - stack
       - npm
   tags:

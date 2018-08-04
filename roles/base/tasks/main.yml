@@ -100,7 +100,7 @@
 - name: Install packages useful for base
   pkgng:
     name:
-      - py36-ansible
+      - py37-ansible
       - zfs-stats
       - devcpu-data
       - beadm
