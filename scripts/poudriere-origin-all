@@ -80,6 +80,7 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	sysutils/devcpu-data                             \
 	sysutils/dmidecode                               \
 	sysutils/htop                                    \
+	sysutils/iocage                                  \
 	sysutils/lsof                                    \
 	sysutils/pciutils                                \
 	sysutils/tmux                                    \
