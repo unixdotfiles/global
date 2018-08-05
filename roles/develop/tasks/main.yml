@@ -75,6 +75,7 @@
       - cloc
       - diffstat
       - xorg-macros
+      - youtube_dl # move to 'human' eventually
     state: present
   ignore_errors: True
   tags:

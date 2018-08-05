@@ -97,6 +97,7 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	www/nginx-devel                                  \
 	www/npm                                          \
 	www/yarn                                         \
+  www/youtube_dl                                   \
 	x11-wm/i3                                        \
 	x11/i3status                                     \
 	x11/rxvt-unicode                                 \
