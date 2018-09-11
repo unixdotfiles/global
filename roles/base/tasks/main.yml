@@ -106,6 +106,7 @@
       - beadm
       - drm-next-kmod
       - bsdstats
+      - x86info
     state: present
   tags:
     - packages
