@@ -64,7 +64,6 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	net/rsync                                        \
 	ports-mgmt/dialog4ports                          \
 	ports-mgmt/distilator                            \
-	ports-mgmt/pkg-provides                          \
 	ports-mgmt/portlint                              \
 	ports-mgmt/poudriere-devel                       \
 	print/texinfo                                    \

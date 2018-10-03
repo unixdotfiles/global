@@ -44,7 +44,6 @@
       - hs-ShellCheck
       - mercurial
       - qemu
-      - pkg-provides
       - graphviz
       - dmidecode
       - mtr
