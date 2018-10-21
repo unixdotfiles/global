@@ -18,7 +18,7 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	devel/lua-luarocks                               \
 	devel/mercurial                                  \
 	devel/ninja                                      \
-	devel/php72-json                                 \
+	devel/php73-json                                 \
 	devel/py-pip                                     \
 	devel/py-pycodestyle                             \
 	devel/py-virtualenv                              \
@@ -30,7 +30,7 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	dns/bind-tools                                   \
 	editors/vim                                      \
 	emulators/qemu                                   \
-	ftp/php72-curl                                   \
+	ftp/php73-curl                                   \
 	ftp/wget                                         \
 	games/cowsay                                     \
 	graphics/drm-next-kmod                           \
@@ -41,7 +41,7 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	lang/gcc9-devel                                  \
 	lang/ghc                                         \
 	lang/go                                          \
-	lang/php72                                       \
+	lang/php73                                       \
 	lang/ruby25                                      \
 	lang/rust                                        \
 	lang/scala                                       \
@@ -81,7 +81,7 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	textproc/docproj                                 \
 	textproc/groff                                   \
 	textproc/jq                                      \
-	textproc/php72-simplexml                         \
+	textproc/php73-simplexml                         \
 	textproc/py-asciinema                            \
 	textproc/py-autopep8                             \
 	textproc/ripgrep                                 \
