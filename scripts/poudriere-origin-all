@@ -14,13 +14,11 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	devel/gmake                                      \
 	devel/hs-ShellCheck                              \
 	devel/hub                                        \
-	devel/hub                                        \
 	devel/kyua                                       \
 	devel/lua-luarocks                               \
 	devel/mercurial                                  \
 	devel/ninja                                      \
 	devel/php72-json                                 \
-	devel/powerpc64-xtoolchain-gcc                   \
 	devel/py-pip                                     \
 	devel/py-pycodestyle                             \
 	devel/py-virtualenv                              \
@@ -38,9 +36,7 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	graphics/drm-next-kmod                           \
 	graphics/graphviz                                \
 	java/linux-oracle-jdk10                          \
-	java/linux-oracle-jdk10                          \
 	lang/gcc48                                       \
-	lang/gcc6                                        \
 	lang/gcc8                                        \
 	lang/gcc9-devel                                  \
 	lang/ghc                                         \
