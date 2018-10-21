@@ -5,8 +5,6 @@ trap 'exit 1' INT
 sudo poudriere bulk -j amd64-matches-host -p development \
 	cad/iverilog                                     \
 	chinese/docproj                                  \
-	devel/aarch64-xtoolchain-gcc                     \
-	devel/amd64-xtoolchain-gcc                       \
 	devel/autotools                                  \
 	devel/ccache                                     \
 	devel/cmake                                      \
@@ -20,8 +18,6 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	devel/kyua                                       \
 	devel/lua-luarocks                               \
 	devel/mercurial                                  \
-	devel/mips64-xtoolchain-gcc                      \
-	devel/mips64-xtoolchain-gcc                      \
 	devel/ninja                                      \
 	devel/php72-json                                 \
 	devel/powerpc64-xtoolchain-gcc                   \
@@ -83,7 +79,7 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	sysutils/lsof                                    \
 	sysutils/pciutils                                \
 	sysutils/tmux                                    \
-  sysutils/x86info                                 \
+	sysutils/x86info                                 \
 	sysutils/zfs-stats                               \
 	textproc/diffstat                                \
 	textproc/docproj                                 \
@@ -97,12 +93,4 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	www/nginx-devel                                  \
 	www/npm                                          \
 	www/yarn                                         \
-  www/youtube_dl                                   \
-	x11-wm/i3                                        \
-	x11/i3status                                     \
-	x11/rxvt-unicode                                 \
-	x11/xbindkeys                                    \
-	x11/xclip                                        \
-	x11/xscreensaver                                 \
-	x11/xorg-minimal                                 \
-
+	www/youtube_dl                                   \
