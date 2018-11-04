@@ -33,7 +33,7 @@
       - tmux
       - vim
       - sudo
-      - python3
+      - python37
       - zsh
       - vuxml
     autoremove: yes
