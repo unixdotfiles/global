@@ -35,7 +35,7 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	games/cowsay                                     \
 	graphics/drm-next-kmod                           \
 	graphics/graphviz                                \
-	java/linux-oracle-jdk10                          \
+	java/linux-oracle-jdk11                          \
 	lang/gcc48                                       \
 	lang/gcc8                                        \
 	lang/ghc                                         \
