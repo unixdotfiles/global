@@ -49,9 +49,9 @@
       - hub
       - cmake
       - rsync
-      - php72-curl
-      - php72-json
-      - php72-simplexml
+      - php73-curl
+      - php73-json
+      - php73-simplexml
       - py37-pycodestyle
       - py37-autopep8
       - pciutils
