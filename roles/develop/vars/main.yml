@@ -18,7 +18,7 @@ allow_make_jobs_packages:
   - icu
   - m4
   - node
-  - llvm60
+  - llvm*
   - openjdk*
   - perl5*
   - pkg*
