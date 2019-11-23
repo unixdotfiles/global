@@ -9,7 +9,7 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	devel/cmake                                      \
 	devel/cvs                                        \
 	devel/gdb                                        \
-	devel/git-subversion                             \
+	devel/git                                        \
 	devel/gmake                                      \
 	devel/hs-ShellCheck                              \
 	devel/hub                                        \
