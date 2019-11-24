@@ -72,7 +72,6 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	sysutils/pciutils                                \
 	sysutils/tmux                                    \
 	sysutils/x86info                                 \
-	sysutils/zfs-stats                               \
 	textproc/diffstat                                \
 	textproc/docproj                                 \
 	textproc/groff                                   \
