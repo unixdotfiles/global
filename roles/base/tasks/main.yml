@@ -103,7 +103,7 @@
       - py37-ansible
       - devcpu-data
       - beadm
-      - drm-next-kmod
+      - drm-fbsd12.0-kmod
       - bsdstats
       - x86info
     state: present
