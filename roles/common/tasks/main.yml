@@ -28,7 +28,7 @@
     name:
       - bash
       - cowsay
-      - git-subversion
+      - git
       - jq
       - tmux
       - vim
