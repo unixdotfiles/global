@@ -3,7 +3,6 @@
 trap 'exit 1' INT
 
 sudo poudriere bulk -j amd64-matches-host -p development \
-	chinese/docproj                                  \
 	devel/autotools                                  \
 	devel/ccache                                     \
 	devel/cmake                                      \
