@@ -34,6 +34,9 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	games/cowsay                                     \
 	graphics/drm-fbsd12.0-kmod                       \
 	graphics/graphviz                                \
+  java/openjdk11                                   \
+  java/openjdk12                                   \
+  java/openjdk13                                   \
 	lang/gcc8                                        \
 	lang/ghc                                         \
 	lang/go                                          \
