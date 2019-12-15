@@ -1,6 +1,6 @@
 - sysctl:
     name: net.link.tap.user_open
-    value: 1
+    value: "1"
     state: present
   tags:
     - configuration

@@ -2,7 +2,7 @@
 - name: enable various settings
   sysctl:
     name: "{{ item }}"
-    value: 1
+    value: "1"
     state: present
   loop:
       - debug.kdb.break_to_debugger
@@ -21,7 +21,7 @@
 - name: set temperature offset for my machine
   sysctl:
     name: "dev.amdtemp.{{item}}.sensor_offset"
-    value: -28
+    value: "-28"
     state: present
   loop:
       - 0
@@ -33,7 +33,7 @@
 - name: fail faster for deadlocks
   sysctl:
     name: "{{ item }}"
-    value: 200
+    value: "200"
     state: present
   loop:
       - debug.deadlkres.blktime_threshold
@@ -52,7 +52,7 @@
 - name: disable witness
   sysctl:
     name: debug.witness.watch
-    value: -1
+    value: "-1"
     state: present
   tags:
     - configuration
@@ -155,7 +155,7 @@
 
 - sysrc:
     name: microcode_update_enable
-    value: YES
+    value: "YES"
     state: present
   tags:
     - configuration
@@ -164,7 +164,7 @@
 
 - sysrc:
     name: "{{ item }}"
-    value: YES
+    value: "YES"
     state: present
   loop:
     - rtsold_enable

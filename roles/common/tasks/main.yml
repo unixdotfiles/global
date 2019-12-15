@@ -72,7 +72,7 @@
 - sysrc:
     name: zfs_enable
     state: present
-    value: yes
+    value: "yes"
   tags:
     - configuration
 

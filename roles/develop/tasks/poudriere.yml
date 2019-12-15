@@ -22,7 +22,7 @@
 
 - sysrc:
     name: poudriered
-    value: YES
+    value: "YES"
     state: present
   tags:
     - configuration

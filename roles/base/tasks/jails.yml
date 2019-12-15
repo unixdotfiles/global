@@ -35,7 +35,7 @@
 
 - sysctl:
     name: net.inet.ip.forwarding
-    value: 1
+    value: '1'
     state: present
   tags:
     - configuration
@@ -43,7 +43,7 @@
 
 - sysctl:
     name: net.link.bridge.pfil_onlyip
-    value: 0
+    value: '0'
     state: present
   tags:
     - configuration
@@ -51,7 +51,7 @@
 
 - sysctl:
     name: net.link.bridge.pfil_bridge
-    value: 0
+    value: '0'
     state: present
   tags:
     - configuration
@@ -59,7 +59,7 @@
 
 - sysctl:
     name: net.link.bridge.pfil_member
-    value: 0
+    value: '0'
     state: present
   tags:
     - configuration

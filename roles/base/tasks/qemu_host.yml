@@ -9,7 +9,7 @@
 
 - sysctl:
     name: net.link.tap.up_on_open
-    value: 1
+    value: "1"
     state: present
   tags:
     - configuration

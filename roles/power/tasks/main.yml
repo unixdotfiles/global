@@ -1,7 +1,7 @@
 ---
 - sysctl:
     name: hw.pci.do_power_nodriver
-    value: 3
+    value: "3"
     sysctl_set: yes
     state: present
   tags:
@@ -12,7 +12,7 @@
 - name: permit lower power usage
   sysctl:
     name: hw.acpi.cpu.cx_lowest
-    value: C3
+    value: "C3"
     state: present
   tags:
     - power
@@ -21,7 +21,7 @@
 
 - sysrc:
     name: "{{ item }}"
-    value: YES
+    value: "YES"
     state: present
   loop:
     - powerd_enable
