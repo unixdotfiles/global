@@ -185,7 +185,7 @@
     block: |
       syslogd_flags="-ss"
       hostname="fasteagle"
-      ifconfig_igb0="inet 192.168.200.9 debug"
+      ifconfig_igb0="inet 192.168.200.10 debug"
       ifconfig_igb0_ipv6="inet6 accept_rtadv wol"
       defaultrouter="192.168.200.1"
       dumpdev="AUTO"
@@ -261,8 +261,8 @@
 #    - configuration
 
 - name: Set up local poudriere path
-  copy:
-    src: poudriere.conf
+  template:
+    src: poudriere.conf.j2
     dest: /usr/local/etc/pkg/repos/poudriere.conf
     owner: root
     group: wheel
