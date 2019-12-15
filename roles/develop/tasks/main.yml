@@ -5,7 +5,7 @@
       - ghc
       - gcc8
       - perl5
-      - php73
+      - php74
       - R
       - rust
       - scala
@@ -45,16 +45,16 @@
       - hub
       - cmake
       - rsync
-      - php73-curl
-      - php73-json
-      - php73-simplexml
-      - py37-pycodestyle
-      - py37-autopep8
+      - php74-curl
+      - php74-json
+      - php74-simplexml
+      - py38-pycodestyle
+      - py38-autopep8
       - pciutils
-      - py37-asciinema
+      - py38-asciinema
       - gdb
       - sbt
-      - py37-virtualenv
+      - py38-virtualenv
       - gmake
       - groff
       - texinfo # for makeinfo for gdb compilation
@@ -83,7 +83,7 @@
       - ruby25-gems
       - lua53-luarocks
       - yarn
-      - py37-pip
+      - py38-pip
       - stack
       - npm
   tags:
