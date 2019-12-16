@@ -100,7 +100,7 @@
 - name: Install packages useful for base
   pkgng:
     name:
-      - py37-ansible
+      - py38-ansible
       - devcpu-data
       - beadm
       - drm-fbsd12.0-kmod
