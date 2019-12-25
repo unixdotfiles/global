@@ -44,6 +44,7 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	security/sudo                                    \
 	lang/swi-pl                                      \
 	math/R                                           \
+  multimedia/plexmediaserver                       \
 	misc/cloc                                        \
 	misc/cpuid                                       \
 	net-p2p/transmission-cli                         \
