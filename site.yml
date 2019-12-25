@@ -43,7 +43,6 @@
     - develop
     - downloader
     - toolspage
-    - plexmediaserver
 
 - name: create ssh bastion
   hosts: bastion
