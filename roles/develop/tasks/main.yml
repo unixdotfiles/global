@@ -25,6 +25,7 @@
 - name: Install development packages
   pkgng:
     name:
+      - autotools
       - ripgrep
       - the_silver_searcher
       - docproj
