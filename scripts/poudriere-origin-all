@@ -34,7 +34,7 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	graphics/drm-fbsd12.0-kmod                       \
 	graphics/graphviz                                \
   java/openjdk13                                   \
-	lang/gcc8                                        \
+	lang/gcc9                                        \
 	lang/ghc                                         \
 	lang/go                                          \
 	lang/php74                                       \

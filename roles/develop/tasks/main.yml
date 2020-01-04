@@ -3,7 +3,7 @@
     name:
       - ruby
       - ghc
-      - gcc8
+      - gcc9
       - perl5
       - php74
       - R
