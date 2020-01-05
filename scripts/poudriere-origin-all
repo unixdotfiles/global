@@ -49,6 +49,7 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	misc/cpuid                                       \
 	net-p2p/transmission-cli                         \
 	net-p2p/transmission-daemon                      \
+	net/aquantia-atlantic-kmod                       \
 	net/mtr                                          \
 	net/rsync                                        \
 	ports-mgmt/dialog4ports                          \

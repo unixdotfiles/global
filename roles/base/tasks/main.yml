@@ -106,6 +106,7 @@
       - drm-fbsd12.0-kmod
       - bsdstats
       - x86info
+      - aquantia-atlantic-kmod
     state: present
   tags:
     - packages
@@ -151,6 +152,7 @@
     - iwm3160fw
     - if_iwm
     - mac_ntpd
+    - if_atlantic
 #   - /boot/kernel/radeonkms.ko
 
 - sysrc:
