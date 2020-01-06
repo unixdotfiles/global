@@ -1,0 +1,10 @@
+---
+
+- name: Install audiovideo packages
+  pkgng:
+    name:
+      - ffmpeg
+    state: present
+  tags:
+    - packages
+

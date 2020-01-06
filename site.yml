@@ -43,6 +43,7 @@
     - develop
     - downloader
     - toolspage
+    - audiovideo
 
 - name: create ssh bastion
   hosts: bastion
