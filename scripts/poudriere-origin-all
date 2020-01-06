@@ -3,6 +3,9 @@
 trap 'exit 1' INT
 
 sudo poudriere bulk -j amd64-matches-host -p development \
+	audio/alsa-utils                                 \
+	audio/linux-c7-alsa-utils                        \
+	audio/virtual_oss                                \
 	devel/autotools                                  \
 	devel/ccache                                     \
 	devel/cmake                                      \
@@ -44,7 +47,8 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	security/sudo                                    \
 	lang/swi-pl                                      \
 	math/R                                           \
-  multimedia/plexmediaserver                       \
+	multimedia/ffmpeg                                \
+	multimedia/mplayer                               \
 	misc/cloc                                        \
 	misc/cpuid                                       \
 	net-p2p/transmission-cli                         \

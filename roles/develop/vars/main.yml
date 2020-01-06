@@ -9,6 +9,7 @@ allow_make_jobs_packages:
   - clang*
   - cmake
   - firefox*
+  - ffmpeg
   - gcc*
   - ghc*
   - go*
@@ -17,6 +18,7 @@ allow_make_jobs_packages:
   - ibreoffice*
   - icu
   - m4
+  - mplayer
   - node
   - llvm*
   - openjdk*
