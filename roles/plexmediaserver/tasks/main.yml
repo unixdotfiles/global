@@ -1,0 +1,19 @@
+---
+
+- name: Install plexmediaserver packages
+  pkgng:
+    name:
+      - plexmediaserver
+    state: present
+  tags:
+    - plexmediaserver
+    - packages
+
+- name: start plexmediaserver
+  service:
+    name: plexmediaserver
+    state: started
+    enabled: yes
+  tags:
+    - plexmediaserver
+
