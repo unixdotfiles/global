@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# coding: utf-8 -*-
+#coding: utf-8 -*-
 # (c) 2014, David Lundgren <dlundgren@syberisle.net>
 #
 # This file is part of Ansible
@@ -56,13 +56,45 @@ EXAMPLES = '''
 
 from ansible.module_utils.basic import *
 
-
 class FreeBSDKernelModule(object):
     def __init__(self, module, name):
-        self.module = module
-        self.name = name
+        self.module  = module
+        self.name    = name
         self.changed = False
-        self.sysrc = module.get_bin_path('sysrc', True)
+        self.sysrc   = module.get_bin_path('sysrc', True)
+
+    def has_unknown_variable(self, out, err):
+        # newer versions of sysrc use stderr instead of stdout
+        return err.find("unknown variable") > 0 or out.find("unknown variable") > 0
+
+    # Returns whether or not the module is set to load in /boot/loader.conf
+    def booted(self):
+        (rc, out, err) = self.module.run_command("%s -f /boot/loader.conf %s_load" %( self.sysrc, self.name ))
+        return not self.has_unknown_variable(out, err)
+
+    def boot_enable(self):
+        if self.module.check_mode:
+            self.changed = True
+            return
+        
+        (rc, out, err) = self.module.run_command("%s -f /boot/loader.conf %s_load=YES" % (self.sysrc, self.name))
+        if out.find("%s_load:" % (self.name)) != -1 and out.find("-> YES") != -1:
+            self.changed = True
+            return True
+        else:
+            return False
+    
+    def boot_disable(self):
+        if self.module.check_mode:
+            self.changed = True
+            return
+        
+        (rc, out, err) = self.module.run_command("%s -f /boot/loader.conf -x %s_load" % (self.sysrc, self.name))
+        if self.has_unknown_variable(out, err):
+            return False
+
+        self.changed = True
+        return True
 
     def loaded(self):
         cmd = [self.module.get_bin_path('kldstat', True)]
@@ -70,53 +102,14 @@ class FreeBSDKernelModule(object):
         cmd.append('-n')
         cmd.append("%s.ko" % self.name)
         (rc, out, err) = self.module.run_command(' '.join(cmd))
-        if rc == 0:
-            return True
-        else:
-            return False
 
-    # Returns whether or not the module is set to load in /boot/loader.conf
-    def exists(self):
-        # sysrc doesn't really use exit codes
-        (rc, out, err) = self.module.run_command(
-            "%s -f /boot/loader.conf %s_load" % (self.sysrc, self.name))
-
-        if out.find("unknown variable") == -1:
-            return True
-        else:
-            return False
-
-    def create(self):
-        if self.module.check_mode:
-            self.changed = True
-            return
-
-        (rc, out, err) = self.module.run_command(
-            "%s -f /boot/loader.conf %s_load=YES" % (self.sysrc, self.name))
-        if out.find("%s_load:" % (self.name)) and out.find("-> YES"):
-            self.changed = True
-            return True
-        else:
-            return False
-
-    def destroy(self):
-        if self.module.check_mode:
-            self.changed = True
-            return
-
-        (rc, out, err) = self.module.run_command(
-            "%s -f /boot/loader.conf -x %s_load" % (self.sysrc, self.name))
-        if out.find("unknown variable") == -1:
-            return False
-        else:
-            self.changed = True
-            return True
+        return rc == 0
 
     def load(self):
         if self.module.check_mode:
             self.changed = True
             return
-
+        
         cmd = [self.module.get_bin_path('kldload', True)]
         cmd.append('-n')
         cmd.append(self.name)
@@ -131,46 +124,47 @@ class FreeBSDKernelModule(object):
         if self.module.check_mode:
             self.changed = True
             return
-
+        
         cmd = [self.module.get_bin_path('kldunload', True)]
         cmd.append(self.name)
         (rc, out, err) = self.module.run_command(' '.join(cmd))
+
+        if err.find('kldunload: ') == 0:
+            self.module.fail_json(msg=err.replace('kldunload: ', '').rstrip())
+
         if rc == 0:
             self.changed = True
             return True
         else:
             return False
-
-
+        
 def main():
     module = AnsibleModule(
-        supports_check_mode=True,
-        argument_spec=dict(
-            name=dict(
-                required=True
+        supports_check_mode = True,
+        argument_spec       = dict(
+            name = dict(
+                required = True
             ),
-            load=dict(
-                default=True,
-                type='bool',
-                choices=[True, False]
+            load = dict(
+                default = True,
+                type    = 'bool'
             ),
-            boot=dict(
-                default=True,
-                type='bool',
-                choices=[True, False]
+            boot = dict(
+                default = True,
+                type    = 'bool'
             )
         ),
     )
-
-    name = module.params.pop('name')
-    load = module.params.pop('load')
-    boot = module.params.pop('boot')
+    
+    name   = module.params.pop('name')
+    load   = module.params.pop('load')
+    boot   = module.params.pop('boot')
     result = {
-        'name': name,
-        'load': load,
-        'boot': boot
+        'name' : name,
+        'load' : load,
+        'boot' : boot
     }
-
+    
     kld = FreeBSDKernelModule(module, name)
 
     if load:
@@ -180,14 +174,13 @@ def main():
 
     # ensure it is set for boot
     if boot:
-        not kld.exists() and kld.create()
+        not kld.booted() and kld.boot_enable()
     else:
-        kld.exists() and kld.destroy()
+        kld.booted() and kld.boot_disable()
 
     result['changed'] = kld.changed
 
     module.exit_json(**result)
-
 
 # import module snippets
 main()
