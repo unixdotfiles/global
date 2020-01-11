@@ -4,6 +4,17 @@
   pkgng:
     name:
       - ffmpeg
+      - mplayer
+    state: present
+  tags:
+    - packages
+
+- name: Install xorg packages
+  pkgng:
+    name:
+      - i3
+      - xauth
+      - xinit
     state: present
   tags:
     - packages
