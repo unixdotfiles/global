@@ -2,7 +2,7 @@
 - name: Install packages required for jails
   pkgng:
     name:
-      - py38-iocage
+      - py37-iocage
 
 - name: add jail devfs rules
   blockinfile:

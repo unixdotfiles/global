@@ -49,13 +49,13 @@
       - php74-curl
       - php74-json
       - php74-simplexml
-      - py38-pycodestyle
-      - py38-autopep8
+      - py37-pycodestyle
+      - py37-autopep8
       - pciutils
-      - py38-asciinema
+      - py37-asciinema
       - gdb
       - sbt
-      - py38-virtualenv
+      - py37-virtualenv
       - gmake
       - groff
       - texinfo # for makeinfo for gdb compilation
@@ -84,7 +84,7 @@
       - ruby25-gems
       - lua53-luarocks
       - yarn
-      - py38-pip
+      - py37-pip
       - stack
       - npm
   tags:
