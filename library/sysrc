@@ -1,5 +1,6 @@
 #!/usr/bin/python
-#coding: utf-8 -*-
+# -*- coding: utf-8 -*-
+#
 # (c) 2014, David Lundgren <dlundgren@syberisle.net>
 #
 # This file is part of Ansible
@@ -15,45 +16,62 @@
 # You should have received a copy of the MIT.
 # If not, see <http://opensource.org/licenses/MIT>.
 
-DOCUMENTATION = '''
+from __future__ import absolute_import, division, print_function
+
+__metaclass__ = type
+
+ANSIBLE_METADATA = {
+    'metadata_version': '1.1',
+    'status': ['preview'],
+    'supported_by': 'community'
+}
+
+DOCUMENTATION = r'''
 ---
+author:
+    - David Lundgren (@dlundgren)
 module: sysrc
-short_description: Manage FreeBSD /etc/rc.conf
-requirements: []
-version_added: 1.7
-author: David Lundgren
+short_description: Manage FreeBSD using sysrc
+version_added: '2.10'
 description:
-    - Manages the /etc/rc.conf for FreeBSD
+    - Manages /etc/rc.conf for FreeBSD
 options:
     name:
-        required: true
         description:
             - Name of variable in $dest to manage.
-            - NOTE: cannot use . (periods) in the name as sysrc doesn't support it
+        type: str
+        required: true
     value:
-        required: false
         description:
             - The value if "present"
+        type: str
     state:
-        required: false
-        default: "present"
-        choices: [ present, absent, append, subtract ]
         description:
             - Whether the var should be present or absent in $dest.
             - append/subtract will add or remove the value from a list.
+        type: str
+        default: "present"
+        choices: [ present, absent, append, subtract ]
     dest:
-        required: false
-        default: "/etc/rc.conf"
         description:
             - What file should be operated on
+        type: str
+        default: "/etc/rc.conf"
     delim:
-        required: false
-        default: " "
         description:
             - Delimiter used in append/subtract mode
+        default: " "
+        type: str
+    jail:
+        description:
+            - Name or ID of the jail to operate on
+        required: false
+        type: str
+notes:
+  - The C(name) cannot use . (periods) as sysrc doesn't support OID style names
 '''
 
-EXAMPLES = '''
+EXAMPLES = r'''
 ---
 # enable mysql in the /etc/rc.conf
 - name: Configure mysql pid file
@@ -75,47 +93,66 @@ EXAMPLES = '''
     name: cloned_interfaces
     state: append
     value: "gif0"
+
+# enable nginx on a jail
+- name: add gif0 interface
+  sysrc:
+    name: nginx_enable
+    value: "YES"
+    jail: www
 '''
 
+RETURN = r'''
+changed:
+  description: Return changed for sysrc actions as true or false.
+  returned: always
+  type: bool
+'''
+
+from ansible.module_utils.basic import AnsibleModule
 import re
-from ansible.module_utils.basic import *
+
 
 class sysrc(object):
-    def __init__(self, module, name, value, dest, delim):
-        self.module  = module
-        self.name    = name
+    def __init__(self, module, name, value, dest, delim, jail):
+        self.module = module
+        self.name = name
         self.changed = False
-        self.value   = value
-        self.dest    = dest
-        self.delim   = delim
-        self.sysrc   = module.get_bin_path('sysrc', True)
+        self.value = value
+        self.dest = dest
+        self.delim = delim
+        self.jail = jail
+        self.sysrc = module.get_bin_path('sysrc', True)
+
+    def has_unknown_variable(self, out, err):
+        # newer versions of sysrc use stderr instead of stdout
+        return err.find("unknown variable") > 0 or out.find("unknown variable") > 0
 
     def exists(self):
         # sysrc doesn't really use exit codes
-        (rc, out, err) = self.module.run_command([self.sysrc, '-f', self.dest, self.name])
-        if out.find("unknown variable") == -1 and re.match("%s: %s$" % (re.escape(self.name), re.escape(self.value)), out) is not None:
-            return True
+        (rc, out, err) = self.run_sysrc(self.name)
+        if self.value is None:
+            regex = "%s: " % re.escape(self.name)
         else:
-            return False
+            regex = "%s: %s$" % (re.escape(self.name), re.escape(self.value))
+
+        return not self.has_unknown_variable(out, err) and re.match(regex, out) is not None
 
     def contains(self):
-        (rc, out, err) = self.module.run_command([self.sysrc, '-n', '-f', self.dest, self.name])
-        if out.find("unknown variable") == -1:
-            values = out.strip().split(self.delim)
-            if self.value in values:
-                return True
-            else:
-                return False
-        else:
+        (rc, out, err) = self.run_sysrc('-n', self.name)
+        if self.has_unknown_variable(out, err):
             return False
+
+        return self.value in out.strip().split(self.delim)
 
     def create(self):
         if self.module.check_mode:
             self.changed = True
             return
 
-        (rc, out, err) = self.module.run_command([self.sysrc, '-f', self.dest, "%s=%s" % (self.name, self.value)])
-        if out.find("%s:" % (self.name)) == 0 and re.search("\-\> %s$" % re.escape(self.value), out) is not None:
+        self.module._verbosity = 5
+        (rc, out, err) = self.run_sysrc("%s=%s" % (self.name, self.value))
+        if out.find("%s:" % self.name) == 0 and re.search("-> %s$" % re.escape(self.value), out) is not None:
             self.changed = True
             return True
         else:
@@ -126,12 +163,12 @@ class sysrc(object):
             self.changed = True
             return
 
-        (rc, out, err) = self.module.run_command([self.sysrc, '-f', self.dest, '-x', self.name])
-        if out.find("unknown variable") == -1:
+        (rc, out, err) = self.run_sysrc('-x', self.name)
+        if self.has_unknown_variable(out, err):
             return False
-        else:
-            self.changed = True
-            return True
+
+        self.changed = True
+        return True
 
     def append(self):
         if self.module.check_mode:
@@ -139,8 +176,8 @@ class sysrc(object):
             return
 
         setstring = '%s+=%s%s' % (self.name, self.delim, self.value)
-        (rc, out, err) = self.module.run_command([self.sysrc, '-f', self.dest, setstring])
-        if out.find("%s:" % (self.name)) == 0:
+        (rc, out, err) = self.run_sysrc(setstring)
+        if out.find("%s:" % self.name) == 0:
             values = out.split(' -> ')[1].strip().split(self.delim)
             if self.value in values:
                 self.changed = True
@@ -156,8 +193,8 @@ class sysrc(object):
             return
 
         setstring = '%s-=%s%s' % (self.name, self.delim, self.value)
-        (rc, out, err) = self.module.run_command([self.sysrc, '-f', self.dest, setstring])
-        if out.find("%s:" % (self.name)) == 0:
+        (rc, out, err) = self.run_sysrc(setstring)
+        if out.find("%s:" % self.name) == 0:
             values = out.split(' -> ')[1].strip().split(self.delim)
             if self.value in values:
                 return False
@@ -167,44 +204,60 @@ class sysrc(object):
         else:
             return False
 
+    def run_sysrc(self, *args):
+        cmd = [self.sysrc, '-f', self.dest]
+        if self.jail:
+            cmd += ['-j', self.jail]
+        cmd.extend(args)
+
+        (rc, out, err) = self.module.run_command(cmd)
+        if self.module._verbosity > 0:
+            self.cmd = cmd
+
+        if self.module._verbosity >= 4:
+            self.cmd_output = out
+
+        return (rc, out, err)
+
 
 def main():
     module = AnsibleModule(
-        argument_spec = dict(
-            name  = dict(
-                required = True
-            ),
-            value = dict(
-                default = None
-            ),
-            state = dict(
-                default = 'present',
-                choices = [ 'present', 'absent', 'append', 'subtract' ]
-            ),
-            dest  = dict(
-                default = '/etc/rc.conf'
-            ),
-            delim = dict(
-                default = ' '
-            )
+        argument_spec=dict(
+            name=dict(type='str', required=True),
+            value=dict(type='str', default=None),
+            state=dict(type='str', default='present', choices=['present', 'absent', 'append', 'subtract']),
+            dest=dict(type='str', default='/etc/rc.conf'),
+            delim=dict(type='str', default=' '),
+            jail=dict(type='str', default=None),
         ),
         supports_check_mode=True,
     )
 
-    name   = module.params.pop('name')
-    value  = module.params.pop('value')
-    state  = module.params.pop('state')
-    dest   = module.params.pop('dest')
-    delim  = module.params.pop('delim')
-    result = {
-        'name'  : name,
-        'state' : state,
-        'value' : value,
-        'dest'  : dest,
-        'delim' : delim,
-    }
+    name = module.params.pop('name')
+    # OID style names are not supported
+    if not re.match('^[a-zA-Z0-9_]+$', name):
+        module.fail_json(
+            msg="Name may only contain alpha-numeric and underscore characters"
+        )
 
-    rcValue = sysrc(module, name, value, dest, delim)
+    value = module.params.pop('value')
+    state = module.params.pop('state')
+    dest = module.params.pop('dest')
+    delim = module.params.pop('delim')
+    jail = module.params.pop('jail')
+    result = dict(
+        name=name,
+        state=state,
+        value=value,
+        dest=dest,
+        delim=delim,
+        jail=jail
+    )
+
+    rcValue = sysrc(module, name, value, dest, delim, jail)
+
+    if module._verbosity >= 4:
+        result['existed'] = rcValue.exists()
 
     if state == 'present':
         not rcValue.exists() and rcValue.create()
@@ -215,8 +268,16 @@ def main():
     elif state == 'subtract':
         rcValue.contains() and rcValue.subtract()
 
+    if module._verbosity > 0:
+        result['command'] = ' '.join(rcValue.cmd)
+
+    if module._verbosity >= 4:
+        result['output'] = rcValue.cmd_output
+
     result['changed'] = rcValue.changed
 
     module.exit_json(**result)
 
-main()
+
+if __name__ == '__main__':
+    main()
