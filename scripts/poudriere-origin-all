@@ -36,7 +36,7 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	games/cowsay                                     \
 	graphics/drm-fbsd12.0-kmod                       \
 	graphics/graphviz                                \
-  java/openjdk13                                   \
+	java/openjdk13                                   \
 	lang/gcc9                                        \
 	lang/ghc                                         \
 	lang/go                                          \
@@ -44,13 +44,12 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	lang/ruby26                                      \
 	lang/rust                                        \
 	lang/scala                                       \
-	security/sudo                                    \
 	lang/swi-pl                                      \
 	math/R                                           \
-	multimedia/ffmpeg                                \
-	multimedia/mplayer                               \
 	misc/cloc                                        \
 	misc/cpuid                                       \
+	multimedia/ffmpeg                                \
+	multimedia/mplayer                               \
 	net-p2p/transmission-cli                         \
 	net-p2p/transmission-daemon                      \
 	net/aquantia-atlantic-kmod                       \
@@ -62,6 +61,7 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	ports-mgmt/poudriere-devel                       \
 	print/texinfo                                    \
 	security/gnupg                                   \
+	security/sudo                                    \
 	security/sudo                                    \
 	security/vuxml                                   \
 	shells/bash                                      \
@@ -92,13 +92,13 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	www/npm                                          \
 	www/yarn                                         \
 	www/youtube_dl                                   \
-	x11/setxkbmap                                    \
+	x11-wm/i3                                        \
 	x11/rxvt                                         \
-	x11/xorg-minimal                                 \
+	x11/setxkbmap                                    \
 	x11/xbindkeys                                    \
 	x11/xhost                                        \
 	x11/xinit                                        \
 	x11/xmodmap                                      \
-	x11/xscreensaver                                 \
+	x11/xorg-minimal                                 \
 	x11/xrandr                                       \
-	x11-wm/i3                                        \
+	x11/xscreensaver                                 \
