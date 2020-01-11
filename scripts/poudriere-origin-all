@@ -92,4 +92,13 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	www/npm                                          \
 	www/yarn                                         \
 	www/youtube_dl                                   \
+	x11/setxkbmap                                    \
+	x11/rxvt                                         \
 	x11/xorg-minimal                                 \
+	x11/xbindkeys                                    \
+	x11/xhost                                        \
+	x11/xinit                                        \
+	x11/xmodmap                                      \
+	x11/xscreensaver                                 \
+	x11/xrandr                                       \
+	x11-wm/i3                                        \
