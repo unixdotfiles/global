@@ -92,3 +92,4 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	www/npm                                          \
 	www/yarn                                         \
 	www/youtube_dl                                   \
+	x11/xorg-minimal                                 \
