@@ -67,6 +67,7 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	shells/bash                                      \
 	shells/zsh                                       \
 	sysutils/ansible                                 \
+	sysutils/py-ansible-lint                         \
 	sysutils/beadm                                   \
 	sysutils/bsdstats                                \
 	sysutils/cpuid                                   \

@@ -50,6 +50,7 @@
       - php74-json
       - php74-simplexml
       - py37-pycodestyle
+      - py37-ansible-lint
       - py37-autopep8
       - pciutils
       - py37-asciinema
