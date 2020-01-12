@@ -11,3 +11,28 @@ sshd:
   UseDNS: no
 pkg_use_official_repo: no
 host_main_ip: 192.168.200.10
+local_enabled_kernel_modules:
+  - cpuctl
+  - dtraceall
+  - hwpmc
+  - filemon
+  - if_tap
+  - amdtemp
+  - tmpfs
+  - linux
+  - linux64
+  - pf
+  - nullfs
+  - intpm
+  - smbus
+  - ksyms
+  - vmm
+  - nmdm
+  - efirt
+  - pflog
+  - siftr
+  - amdsbwd
+  - iwm3160fw
+  - if_iwm
+  - mac_ntpd
+  - /boot/kernel/radeonkms.ko

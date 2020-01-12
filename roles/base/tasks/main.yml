@@ -126,33 +126,7 @@
   tags:
     - configuration
     - hardware
-  loop:
-    - cpuctl
-    - dtraceall
-    - hwpmc
-    - filemon
-    - if_tap
-    - amdtemp
-    - tmpfs
-    - linux
-    - linux64
-    - pf
-    - nullfs
-    - intpm
-    - linprocfs
-    - smbus
-    - ksyms
-    - vmm
-    - nmdm
-    - efirt
-    - pflog
-    - siftr
-    - amdsbwd
-    - iwm3160fw
-    - if_iwm
-    - mac_ntpd
-    - if_atlantic
-#   - /boot/kernel/radeonkms.ko
+  loop: "{{ local_enabled_kernel_modules }}"
 
 - name: enable microcode updates
   sysrc:
@@ -196,7 +170,7 @@
       #ifconfig_wlan0="WPA NOSYNCDHCP indoor debug powersave ht -htcompat"
       cloned_interfaces="bridge0 tap0"
       ifconfig_bridge0="addm igb0 up"
-      kld_list="cpuctl dtraceall hwpmc filemon if_tap amdtemp tmpfs linux linux64 pf nullfs intpm smbus ksyms vmm nmdm efirt pflog siftr amdsbwd iwm3160fw if_iwm mac_ntpd /boot/kernel/radeonkms.ko"
+      kld_list="{{ local_enabled_kernel_modules|join(' ') }}"
     create: yes
     owner: root
     group: wheel

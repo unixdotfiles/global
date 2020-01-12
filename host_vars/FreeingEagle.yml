@@ -1,0 +1,7 @@
+local_enabled_kernel_modules:
+  - /boot/modules/i915kms
+  - filemon
+  - cpuctl
+  - coretemp
+  - acpi_video
+  - if_iwm
