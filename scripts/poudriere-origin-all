@@ -37,6 +37,7 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	graphics/drm-kmod                                \
 	graphics/drm-fbsd12.0-kmod                       \
 	graphics/graphviz                                \
+	graphics/mesa-dri                                \
 	java/openjdk13                                   \
 	lang/gcc9                                        \
 	lang/ghc                                         \
