@@ -34,6 +34,7 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	ftp/php74-curl                                   \
 	ftp/wget                                         \
 	games/cowsay                                     \
+	graphics/drm-kmod                                \
 	graphics/drm-fbsd12.0-kmod                       \
 	graphics/graphviz                                \
 	java/openjdk13                                   \
