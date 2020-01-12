@@ -98,6 +98,8 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	x11/rxvt-unicode                                 \
 	x11/setxkbmap                                    \
 	x11/xbindkeys                                    \
+	x11/xev                                          \
+	x11/xeyes                                        \
 	x11/xhost                                        \
 	x11/xinit                                        \
 	x11/xmodmap                                      \
