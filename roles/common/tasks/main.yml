@@ -1,4 +1,5 @@
-- debug:
+- name: Setup ansible debugging
+  debug:
     var: vars
     verbosity: 3
   tags:
@@ -62,28 +63,32 @@
   tags:
     - cleanup
 
-- sysrc:
+- name: syslogd should be local only
+  sysrc:
     name: syslogd_flags
     state: present
     value: -ss
   tags:
     - configuration
 
-- sysrc:
+- name: Setup zfs config
+  sysrc:
     name: zfs_enable
     state: present
     value: "yes"
   tags:
     - configuration
 
-- sysrc:
+- name: Set hostname
+  sysrc:
     name: hostname
     value: "{{ inventory_hostname }}"
     state: present
   tags:
     - configuration
 
-- service:
+- name: Setup syslog daemon
+  service:
     name: syslogd
     state: started
   tags:

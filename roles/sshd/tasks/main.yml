@@ -1,4 +1,5 @@
-- stat:
+- name: establish ssh_host_ecdsa_key facts
+  stat:
     path: /etc/ssh/ssh_host_ecdsa_key
   register: ssh_host_ecdsa_key
 

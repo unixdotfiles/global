@@ -1,5 +1,5 @@
----
-- git:
+- name: clone dotfiles repo
+  git:
     repo: 'https://github.com/unixdotfiles/dotfiles'
     dest: /home/eax/.conf
     version: master
@@ -8,7 +8,8 @@
     force: no
     update: no
 
-- git:
+- name: clone misc-scripts repo
+  git:
     repo: 'https://github.com/unixdotfiles/misc-scripts'
     dest: /home/eax/misc-scripts
     version: master
@@ -17,7 +18,8 @@
     force: no
     update: no
 
-- git:
+- name: clone bin repo
+  git:
     repo: 'https://github.com/unixdotfiles/bin'
     dest: /home/eax/bin
     version: master

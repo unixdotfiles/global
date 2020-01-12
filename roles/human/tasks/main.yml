@@ -1,14 +1,17 @@
-- group:
+- name: establish group for sshing
+  group:
     name: ssh_allowed
     gid: 2001
     state: present
 
-- group:
+- name: create main user
+  group:
     name: eax
     gid: 1001
     state: present
 
-- user:
+- name: allow main user to get permissions
+  user:
     name: eax
     uid: 1001
     group: eax

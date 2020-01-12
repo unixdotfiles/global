@@ -1,4 +1,5 @@
-- sysctl:
+- name: allow non-root to use tap
+  sysctl:
     name: net.link.tap.user_open
     value: "1"
     state: present

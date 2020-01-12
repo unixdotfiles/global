@@ -1,5 +1,6 @@
 ---
-- sysctl:
+- name: power down unused devices
+  sysctl:
     name: hw.pci.do_power_nodriver
     value: "3"
     sysctl_set: yes
@@ -19,7 +20,8 @@
     - hardware
     - configuration
 
-- sysrc:
+- name: set power related configuration
+  sysrc:
     name: "{{ item }}"
     value: "YES"
     state: present

@@ -1,4 +1,5 @@
-- kld:
+- name: load tap module
+  kld:
     name: if_tap
     load: true
     boot: false
@@ -7,7 +8,8 @@
     - networking
     - qemu
 
-- sysctl:
+- name: enable tap link when opened
+  sysctl:
     name: net.link.tap.up_on_open
     value: "1"
     state: present

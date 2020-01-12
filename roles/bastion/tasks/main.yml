@@ -1,11 +1,13 @@
-- group:
+- name: creation bastion group
+  group:
     name: bastion
     gid: 2003
     state: present
   tags:
     - bastion
 
-- user:
+- name: creation bastion user
+  user:
     name: bastion
     uid: 2003
     group: bastion
@@ -16,7 +18,8 @@
     - bastion
     - users
 
-- file:
+- name: creation bastion chroot
+  file:
     path: /opt/bastion/ssh_chroot
     state: directory
     owner: root
@@ -25,7 +28,8 @@
   tags:
     - bastion
 
-- file:
+- name: creation bastion totp directory - toplevel
+  file:
     path: /opt/bastion/totp/
     state: directory
     owner: root
@@ -34,7 +38,8 @@
   tags:
     - bastion
 
-- file:
+- name: creation bastion totp directory - inner
+  file:
     path: /opt/bastion/totp/bastion
     state: directory
     owner: bastion
@@ -43,7 +48,8 @@
   tags:
     - bastion
 
-- file:
+- name: creation bastion totp config file
+  file:
     path: /opt/bastion/totp/bastion/config
     owner: bastion
     group: bastion
@@ -53,7 +59,8 @@
 
 # It may not be the greatest idea to make this public
 # but its not like its supposed to be private
-- authorized_key:
+- name: insert public key into authorized_keys
+  authorized_key:
     exclusive: yes
     key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFBbue/RQS6f3KQDQUUXXLj2gQ/Ga6QDODsTfqhj3JP7 eax"
     key_options:
@@ -76,7 +83,8 @@
     - configuration
     - bastion
 
-- sysrc:
+- name: enable sshd for bastion
+  sysrc:
     name: sshd_enable
     value: yes
     state: present

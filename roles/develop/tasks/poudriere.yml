@@ -20,7 +20,8 @@
     - configuration
     - poudriere
 
-- sysrc:
+- name: set up poudriered daemon
+  sysrc:
     name: poudriered
     value: "YES"
     state: present

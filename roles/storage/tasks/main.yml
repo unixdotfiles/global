@@ -30,7 +30,8 @@
     - storage
     - zfs
 
-- zfs:
+- name: configure object directories
+  zfs:
     name: "{{ item }}"
     state: present
     extra_zfs_properties:
@@ -46,7 +47,8 @@
     - storage
     - zfs
 
-- zfs:
+- name: configure download directories
+  zfs:
     name: "{{ item }}"
     state: present
     extra_zfs_properties:
@@ -61,7 +63,8 @@
     - storage
     - zfs
 
-- file:
+- name: configure download directories permissions
+  file:
     name: /srv/download
     owner: eax
     group: eax
@@ -69,7 +72,8 @@
     - storage
     - zfs
 
-- file:
+- name: configure transmission directories
+  file:
     name: /srv/download/transmission
     owner: transmission
     group: transmission
@@ -78,7 +82,8 @@
     - zfs
     - transmission
 
-- zfs:
+- name: configure coredump directories
+  zfs:
     name: zroot/srv/cores
     state: present
     extra_zfs_properties:
@@ -90,7 +95,8 @@
     - storage
     - zfs
 
-- file:
+- name: configure coredump directories permissions
+  file:
     name: /srv/cores
     owner: root
     group: wheel

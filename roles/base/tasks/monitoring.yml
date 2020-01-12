@@ -1,4 +1,3 @@
----
 - name: Install packages for monitoring
   pkgng:
     name:
@@ -10,7 +9,7 @@
   tags:
     - packages
     - monitoring
-  
+
 - name: Configure montitoring services
   sysrc:
     name: "{{ item }}_enable"
