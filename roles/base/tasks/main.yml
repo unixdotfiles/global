@@ -20,7 +20,7 @@
 
 - name: set temperature offset for my machine
   sysctl:
-    name: "dev.amdtemp.{{item}}.sensor_offset"
+    name: "dev.amdtemp.{{ item }}.sensor_offset"
     value: "-28"
     state: present
   loop:
