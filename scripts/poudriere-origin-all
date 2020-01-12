@@ -99,6 +99,7 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	x11/rxvt-unicode                                 \
 	x11/setxkbmap                                    \
 	x11/xbindkeys                                    \
+	x11/xdotool                                      \
 	x11/xev                                          \
 	x11/xeyes                                        \
 	x11/xhost                                        \
@@ -108,3 +109,4 @@ sudo poudriere bulk -j amd64-matches-host -p development \
 	x11/xprop                                        \
 	x11/xrandr                                       \
 	x11/xscreensaver                                 \
+	x11/xvinfo                                       \
