@@ -86,7 +86,7 @@
 - name: enable sshd for bastion
   sysrc:
     name: sshd_enable
-    value: yes
+    value: "yes"
     state: present
   tags:
     - configuration
