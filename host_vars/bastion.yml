@@ -1,3 +1,4 @@
+pkg_use_official_repo: no
 sshd_manage_service: True
 sshd:
   Compression: delayed
