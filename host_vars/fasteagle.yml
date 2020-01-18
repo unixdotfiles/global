@@ -10,7 +10,6 @@ sshd:
   Port: 22
   UseDNS: no
 pkg_use_official_repo: no
-host_main_ip: 192.168.200.10
 local_enabled_kernel_modules:
   - cpuctl
   - dtraceall

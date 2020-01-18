@@ -15,3 +15,4 @@ all:
         ansible_connection: jail
   vars:
     ansible_python_interpreter: /usr/local/bin/python3.7
+    host_main_ip: 192.168.200.10
