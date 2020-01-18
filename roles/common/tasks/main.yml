@@ -13,7 +13,7 @@
   tags:
     - configuration
 
-- name: Set up repository path
+- name: Configure upstream repository details
   template:
     src: FreeBSD.conf
     dest: /usr/local/etc/pkg/repos/FreeBSD.conf
@@ -23,6 +23,19 @@
     backup: yes
   tags:
     - configuration
+
+- name: Configure local repository details
+  template:
+    src: poudriere.conf.j2
+    dest: /usr/local/etc/pkg/repos/poudriere.conf
+    owner: root
+    group: wheel
+    mode: '0644'
+    backup: yes
+  tags:
+    - configuration
+    - poudriere
+
 
 - name: Install basic packages
   pkgng:

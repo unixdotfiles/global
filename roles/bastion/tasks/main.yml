@@ -48,14 +48,14 @@
   tags:
     - bastion
 
-- name: creation bastion totp config file
-  file:
-    path: /opt/bastion/totp/bastion/config
-    owner: bastion
-    group: bastion
-    mode: 0400
-  tags:
-    - bastion
+      #- name: creation bastion totp config file
+      #  file:
+      #    path: /opt/bastion/totp/bastion/config
+      #    owner: bastion
+      #    group: bastion
+      #    mode: 0400
+      #  tags:
+      #    - bastion
 
 # It may not be the greatest idea to make this public
 # but its not like its supposed to be private
