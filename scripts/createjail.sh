@@ -12,5 +12,5 @@ iocage \
   vnet=on \
   allow_set_hostname=0 \
   boot=on \
-  -r 11.1-RELEASE \
+  -r 12.1-RELEASE \
   "$@"
