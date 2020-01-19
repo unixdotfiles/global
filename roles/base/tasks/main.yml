@@ -1,3 +1,28 @@
+- name: set variable for randompid status
+  command:
+    argv:
+      - sysctl
+      - -n
+      - kern.randompid
+    strip_empty_ends: yes
+  register: sysvtl_kern_randompid
+  changed_when: false
+  tags:
+    - configuration
+    - randompid
+
+- name: enable randompid feature
+  sysctl:
+    name: kern.randompid
+    value: "1"
+    state: present
+  tags:
+    - configuration
+    - randompid
+  when:
+    sysvtl_kern_randompid.stdout == "0"
+
+
 - name: enable various settings
   sysctl:
     name: "{{ item }}"
@@ -9,7 +34,6 @@
       - kern.dtrace.err_verbose
       - kern.lognosys
       - kern.msgbuf_show_timestamp
-      - kern.randompid
       - kern.sugid_coredump
       - net.inet6.ip6.accept_rtadv
       - security.bsd.stack_guard_page
