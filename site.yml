@@ -1,7 +1,6 @@
 ---
 - name: ensure jail has networking
   hosts: bastion
-  gather_facts: False
 
   pre_tasks:
     - name: run dhclient
@@ -12,7 +11,6 @@
 
 - name: add python if not installed
   hosts: all
-  gather_facts: False
 
   pre_tasks:
     - name: install python
