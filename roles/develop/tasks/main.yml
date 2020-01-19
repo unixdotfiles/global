@@ -82,7 +82,7 @@
   ignore_errors: True
   pkgng:
     name:
-      - ruby25-gems
+      - ruby26-gems
       - lua53-luarocks
       - yarn
       - py37-pip
