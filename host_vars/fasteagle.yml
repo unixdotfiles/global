@@ -35,3 +35,4 @@ local_enabled_kernel_modules:
   - if_iwm
   - mac_ntpd
   - /boot/modules/radeonkms.ko
+  - if_atlantic
