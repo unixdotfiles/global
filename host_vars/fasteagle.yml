@@ -27,7 +27,6 @@ local_enabled_kernel_modules:
   - ksyms
   - vmm
   - nmdm
-  - efirt
   - pflog
   - siftr
   - amdsbwd
