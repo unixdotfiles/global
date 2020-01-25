@@ -31,3 +31,5 @@
     - power
     - configuration
     - services
+  when:
+    ansible_form_factor != 'Desktop'
