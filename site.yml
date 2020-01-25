@@ -4,7 +4,7 @@
 
   pre_tasks:
     - name: run dhclient
-      raw: /sbin/dhclient epair0b
+      raw: /sbin/dhclient vnet0.1
       changed_when: False
 
   ignore_errors: true
