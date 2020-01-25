@@ -186,7 +186,7 @@
     block: |
       syslogd_flags="-ss"
       hostname="fasteagle"
-      ifconfig_igb0="inet 192.168.200.10 debug"
+      ifconfig_igb0="inet {{host_main_ip}} debug"
       ifconfig_igb0_ipv6="inet6 accept_rtadv wol"
       defaultrouter="192.168.200.1"
       dumpdev="AUTO"
