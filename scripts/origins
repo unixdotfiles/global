@@ -45,6 +45,7 @@ lang/swi-pl
 math/R
 misc/cloc
 misc/cpuid
+misc/sloccount
 multimedia/ffmpeg
 multimedia/mplayer
 net-p2p/transmission-cli

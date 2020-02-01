@@ -68,6 +68,7 @@
       - wget
       - kyua
       - cloc
+      - sloccount # speeds up cloc
       - diffstat
       - xorg-macros
       - youtube_dl # move to 'human' eventually
