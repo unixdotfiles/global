@@ -1,0 +1,11 @@
+all:
+  children:
+    base:
+      hosts:
+        freeingeagle:
+          ansible_host: localhost
+      vars:
+        ansible_user: eax
+        ansible_connection: local
+  vars:
+    ansible_python_interpreter: /usr/bin/python3.9
