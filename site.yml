@@ -10,7 +10,7 @@
   ignore_errors: true
 
 - name: add python if not installed
-  hosts: all
+  hosts: fasteagle bastion freeingeagle
 
   pre_tasks:
     - name: install python
