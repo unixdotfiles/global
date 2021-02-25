@@ -25,10 +25,15 @@
 #    - name: Gathering facts
 #      setup:
 
-- name: apply to everything
+- name: apply to absolutely everything
   hosts: all
   roles:
     - common
+
+- name: apply to all freebsd hosts
+  hosts: fasteagle bastion freeingeagle
+  roles:
+    - freebsd_common
 
 - name: apply to host system
   hosts: fasteagle

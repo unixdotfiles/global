@@ -1,0 +1,101 @@
+- name: Ensure respository directory exists
+  file:
+    path: /usr/local/etc/pkg/repos
+    recurse: yes
+    state: directory
+  tags:
+    - configuration
+
+- name: Configure upstream repository details
+  template:
+    src: FreeBSD.conf
+    dest: /usr/local/etc/pkg/repos/FreeBSD.conf
+    owner: root
+    group: wheel
+    mode: '0644'
+    backup: yes
+  tags:
+    - configuration
+
+- name: Configure local repository details
+  template:
+    src: poudriere.conf.j2
+    dest: /usr/local/etc/pkg/repos/poudriere.conf
+    owner: root
+    group: wheel
+    mode: '0644'
+    backup: yes
+  tags:
+    - configuration
+    - poudriere
+
+
+- name: Install basic packages
+  pkgng:
+    name:
+      - bash
+      - cowsay
+      - git
+      - jq
+      - tmux
+      - vim
+      - sudo
+      - python37
+      - zsh
+      - vuxml
+    autoremove: yes
+    state: present
+  tags:
+    - packages
+
+#- name: Setup production malloc
+#  file:
+#    dest: /etc/malloc.conf
+#    src: 'abort:false,junk:false'
+#    force: yes
+#    state: link
+#    owner: root
+#    group: wheel
+#    mode: '0644'
+#  tags:
+#    - configuration
+#
+- name: Ensure some packages are not installed
+  pkgng:
+    name:
+      - sl
+    autoremove: yes
+    state: absent
+  tags:
+    - cleanup
+
+- name: syslogd should be local only
+  sysrc:
+    name: syslogd_flags
+    state: present
+    value: -ss
+  tags:
+    - configuration
+
+- name: Setup zfs config
+  sysrc:
+    name: zfs_enable
+    state: present
+    value: "yes"
+  tags:
+    - configuration
+
+- name: Set hostname
+  sysrc:
+    name: hostname
+    value: "{{ inventory_hostname }}"
+    state: present
+  tags:
+    - configuration
+
+- name: Setup syslog daemon
+  service:
+    name: syslogd
+    state: started
+  tags:
+    - services
